@@ -1,0 +1,23 @@
+{
+  "name": "estudio-bolsillo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Estudio musical para celular: caja de ritmos, bajo tipo 303, synth y mezcla. Web Audio puro.",
+  "scripts": {
+    "dev": "serve www -l 5173",
+    "android:add": "cap add android",
+    "android:sync": "cap sync android",
+    "android:open": "cap open android",
+    "android:run": "cap run android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.2",
+    "@capacitor/core": "^8.6.2",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/share": "^8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.2",
+    "serve": "^14.2.8"
+  }
+}
