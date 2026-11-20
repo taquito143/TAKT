@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
@@ -52,8 +52,8 @@ button:disabled{opacity:.35;cursor:default}
 main{flex:1;overflow-y:auto;padding:12px 12px 24px;-webkit-overflow-scrolling:touch}
 nav{display:flex;background:var(--panel);border-top:1px solid var(--line);flex:none}
 nav button{flex:1;border:none;border-radius:0;background:none;padding:8px 0 10px;font-size:12px;color:var(--dim)}
-nav button i{display:block;font-style:normal;font-size:19px;margin-bottom:2px;filter:grayscale(1);opacity:.6}
-nav button.on{color:var(--text)}nav button.on i{filter:none;opacity:1}
+nav button i{display:block;line-height:0;margin-bottom:3px}nav button i .ic{width:22px;height:22px}
+nav button.on{color:var(--text)}nav button.on i{color:var(--bass)}
 .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px}
 .chip{height:40px;display:flex;align-items:center;gap:8px;padding:0 10px;font-size:13px;text-align:left}
 .chip.on{border-color:var(--c);background:color-mix(in srgb,var(--c) 20%,var(--panel2))}
@@ -138,6 +138,10 @@ input.txt{width:100%;height:46px;border-radius:10px;background:var(--bg);color:v
 #splash .brand{font-size:64px;padding:0 10px 16px 18px;text-shadow:4.5px 0px 0 var(--ink),4.1px 1.7px 0 var(--ink),3.2px 3.2px 0 var(--ink),1.7px 4.1px 0 var(--ink),0px 4.5px 0 var(--ink),-1.7px 4.1px 0 var(--ink),-3.2px 3.2px 0 var(--ink),-4.1px 1.7px 0 var(--ink),-4.5px 0px 0 var(--ink),-4.1px -1.7px 0 var(--ink),-3.2px -3.2px 0 var(--ink),-1.7px -4.1px 0 var(--ink),0px -4.5px 0 var(--ink),1.7px -4.1px 0 var(--ink),3.2px -3.2px 0 var(--ink),4.1px -1.7px 0 var(--ink),3.5px 1px 0 var(--ink),3.1px 2.7px 0 var(--ink),2.2px 4.2px 0 var(--ink),0.7px 5.1px 0 var(--ink),-1px 5.5px 0 var(--ink),-2.7px 5.1px 0 var(--ink),-4.2px 4.2px 0 var(--ink),-5.1px 2.7px 0 var(--ink),-5.5px 1px 0 var(--ink),-5.1px -0.7px 0 var(--ink),-4.2px -2.2px 0 var(--ink),-2.7px -3.1px 0 var(--ink),-1px -3.5px 0 var(--ink),0.7px -3.1px 0 var(--ink),2.2px -2.2px 0 var(--ink),3.1px -0.7px 0 var(--ink),3.5px 2px 0 var(--ink),3.1px 3.7px 0 var(--ink),2.2px 5.2px 0 var(--ink),0.7px 6.1px 0 var(--ink),-1px 6.5px 0 var(--ink),-2.7px 6.1px 0 var(--ink),-4.2px 5.2px 0 var(--ink),-5.1px 3.7px 0 var(--ink),-5.5px 2px 0 var(--ink),-5.1px 0.3px 0 var(--ink),-4.2px -1.2px 0 var(--ink),-2.7px -2.1px 0 var(--ink),-1px -2.5px 0 var(--ink),0.7px -2.1px 0 var(--ink),2.2px -1.2px 0 var(--ink),3.1px 0.3px 0 var(--ink),2.5px 3px 0 var(--ink),2.1px 4.7px 0 var(--ink),1.2px 6.2px 0 var(--ink),-0.3px 7.1px 0 var(--ink),-2px 7.5px 0 var(--ink),-3.7px 7.1px 0 var(--ink),-5.2px 6.2px 0 var(--ink),-6.1px 4.7px 0 var(--ink),-6.5px 3px 0 var(--ink),-6.1px 1.3px 0 var(--ink),-5.2px -0.2px 0 var(--ink),-3.7px -1.1px 0 var(--ink),-2px -1.5px 0 var(--ink),-0.3px -1.1px 0 var(--ink),1.2px -0.2px 0 var(--ink),2.1px 1.3px 0 var(--ink),2.5px 4px 0 var(--ink),2.1px 5.7px 0 var(--ink),1.2px 7.2px 0 var(--ink),-0.3px 8.1px 0 var(--ink),-2px 8.5px 0 var(--ink),-3.7px 8.1px 0 var(--ink),-5.2px 7.2px 0 var(--ink),-6.1px 5.7px 0 var(--ink),-6.5px 4px 0 var(--ink),-6.1px 2.3px 0 var(--ink),-5.2px 0.8px 0 var(--ink),-3.7px -0.1px 0 var(--ink),-2px -0.5px 0 var(--ink),-0.3px -0.1px 0 var(--ink),1.2px 0.8px 0 var(--ink),2.1px 2.3px 0 var(--ink),1.5px 5px 0 var(--ink),1.1px 6.7px 0 var(--ink),0.2px 8.2px 0 var(--ink),-1.3px 9.1px 0 var(--ink),-3px 9.5px 0 var(--ink),-4.7px 9.1px 0 var(--ink),-6.2px 8.2px 0 var(--ink),-7.1px 6.7px 0 var(--ink),-7.5px 5px 0 var(--ink),-7.1px 3.3px 0 var(--ink),-6.2px 1.8px 0 var(--ink),-4.7px 0.9px 0 var(--ink),-3px 0.5px 0 var(--ink),-1.3px 0.9px 0 var(--ink),0.2px 1.8px 0 var(--ink),1.1px 3.3px 0 var(--ink),1.5px 6px 0 var(--ink),1.1px 7.7px 0 var(--ink),0.2px 9.2px 0 var(--ink),-1.3px 10.1px 0 var(--ink),-3px 10.5px 0 var(--ink),-4.7px 10.1px 0 var(--ink),-6.2px 9.2px 0 var(--ink),-7.1px 7.7px 0 var(--ink),-7.5px 6px 0 var(--ink),-7.1px 4.3px 0 var(--ink),-6.2px 2.8px 0 var(--ink),-4.7px 1.9px 0 var(--ink),-3px 1.5px 0 var(--ink),-1.3px 1.9px 0 var(--ink),0.2px 2.8px 0 var(--ink),1.1px 4.3px 0 var(--ink),0.5px 7px 0 var(--ink),0.1px 8.7px 0 var(--ink),-0.8px 10.2px 0 var(--ink),-2.3px 11.1px 0 var(--ink),-4px 11.5px 0 var(--ink),-5.7px 11.1px 0 var(--ink),-7.2px 10.2px 0 var(--ink),-8.1px 8.7px 0 var(--ink),-8.5px 7px 0 var(--ink),-8.1px 5.3px 0 var(--ink),-7.2px 3.8px 0 var(--ink),-5.7px 2.9px 0 var(--ink),-4px 2.5px 0 var(--ink),-2.3px 2.9px 0 var(--ink),-0.8px 3.8px 0 var(--ink),0.1px 5.3px 0 var(--ink),0.5px 8px 0 var(--ink),0.1px 9.7px 0 var(--ink),-0.8px 11.2px 0 var(--ink),-2.3px 12.1px 0 var(--ink),-4px 12.5px 0 var(--ink),-5.7px 12.1px 0 var(--ink),-7.2px 11.2px 0 var(--ink),-8.1px 9.7px 0 var(--ink),-8.5px 8px 0 var(--ink),-8.1px 6.3px 0 var(--ink),-7.2px 4.8px 0 var(--ink),-5.7px 3.9px 0 var(--ink),-4px 3.5px 0 var(--ink),-2.3px 3.9px 0 var(--ink),-0.8px 4.8px 0 var(--ink),0.1px 6.3px 0 var(--ink),-0.5px 9px 0 var(--ink),-0.9px 10.7px 0 var(--ink),-1.8px 12.2px 0 var(--ink),-3.3px 13.1px 0 var(--ink),-5px 13.5px 0 var(--ink),-6.7px 13.1px 0 var(--ink),-8.2px 12.2px 0 var(--ink),-9.1px 10.7px 0 var(--ink),-9.5px 9px 0 var(--ink),-9.1px 7.3px 0 var(--ink),-8.2px 5.8px 0 var(--ink),-6.7px 4.9px 0 var(--ink),-5px 4.5px 0 var(--ink),-3.3px 4.9px 0 var(--ink),-1.8px 5.8px 0 var(--ink),-0.9px 7.3px 0 var(--ink),-1.5px 10px 0 var(--ink),-1.9px 11.7px 0 var(--ink),-2.8px 13.2px 0 var(--ink),-4.3px 14.1px 0 var(--ink),-6px 14.5px 0 var(--ink),-7.7px 14.1px 0 var(--ink),-9.2px 13.2px 0 var(--ink),-10.1px 11.7px 0 var(--ink),-10.5px 10px 0 var(--ink),-10.1px 8.3px 0 var(--ink),-9.2px 6.8px 0 var(--ink),-7.7px 5.9px 0 var(--ink),-6px 5.5px 0 var(--ink),-4.3px 5.9px 0 var(--ink),-2.8px 6.8px 0 var(--ink),-1.9px 8.3px 0 var(--ink),-1.5px 11px 0 var(--ink),-1.9px 12.7px 0 var(--ink),-2.8px 14.2px 0 var(--ink),-4.3px 15.1px 0 var(--ink),-6px 15.5px 0 var(--ink),-7.7px 15.1px 0 var(--ink),-9.2px 14.2px 0 var(--ink),-10.1px 12.7px 0 var(--ink),-10.5px 11px 0 var(--ink),-10.1px 9.3px 0 var(--ink),-9.2px 7.8px 0 var(--ink),-7.7px 6.9px 0 var(--ink),-6px 6.5px 0 var(--ink),-4.3px 6.9px 0 var(--ink),-2.8px 7.8px 0 var(--ink),-1.9px 9.3px 0 var(--ink),-2.5px 12px 0 var(--ink),-2.9px 13.7px 0 var(--ink),-3.8px 15.2px 0 var(--ink),-5.3px 16.1px 0 var(--ink),-7px 16.5px 0 var(--ink),-8.7px 16.1px 0 var(--ink),-10.2px 15.2px 0 var(--ink),-11.1px 13.7px 0 var(--ink),-11.5px 12px 0 var(--ink),-11.1px 10.3px 0 var(--ink),-10.2px 8.8px 0 var(--ink),-8.7px 7.9px 0 var(--ink),-7px 7.5px 0 var(--ink),-5.3px 7.9px 0 var(--ink),-3.8px 8.8px 0 var(--ink),-2.9px 10.3px 0 var(--ink),-2.5px 13px 0 var(--ink),-2.9px 14.7px 0 var(--ink),-3.8px 16.2px 0 var(--ink),-5.3px 17.1px 0 var(--ink),-7px 17.5px 0 var(--ink),-8.7px 17.1px 0 var(--ink),-10.2px 16.2px 0 var(--ink),-11.1px 14.7px 0 var(--ink),-11.5px 13px 0 var(--ink),-11.1px 11.3px 0 var(--ink),-10.2px 9.8px 0 var(--ink),-8.7px 8.9px 0 var(--ink),-7px 8.5px 0 var(--ink),-5.3px 8.9px 0 var(--ink),-3.8px 9.8px 0 var(--ink),-2.9px 11.3px 0 var(--ink);animation:pop .7s cubic-bezier(.2,1.4,.4,1) both}
 @keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){#splash .brand{animation:none}#splash{transition:none}}
+.ic{width:1.2em;height:1.2em;vertical-align:-.22em;flex:none}.ic.lead{margin-right:.45em}
+#play .ic{width:22px;height:22px;vertical-align:middle}#undo .ic,#redo .ic,#gearBtn .ic,#menuBtn .ic{width:19px;height:19px;vertical-align:middle}
+#songBtn i{font-style:normal}#songBtn .ic{width:16px;height:16px;vertical-align:-.2em}
+.sheet-in .big{display:flex;align-items:center}.sheet-in h2 .ic{color:var(--bass)}
 #toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#fff;color:#111;padding:8px 14px;border-radius:20px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
 #toast.show{opacity:1}
 </style>
@@ -147,23 +151,23 @@ input.txt{width:100%;height:46px;border-radius:10px;background:var(--bg);color:v
   <div class="r1">
     <div class="brand">TAKT</div>
     <canvas id="scope"></canvas>
-    <button id="undo" disabled>↶</button><button id="redo" disabled>↷</button>
-    <button id="songBtn">🎼 <span data-i="song">Canción</span></button>
-    <button id="gearBtn">⚙</button><button id="menuBtn">⋯</button>
+    <button id="undo" disabled data-ic="undo"></button><button id="redo" disabled data-ic="redo"></button>
+    <button id="songBtn"><i data-ic="song"></i> <span data-i="song">Song</span></button>
+    <button id="gearBtn" data-ic="gear"></button><button id="menuBtn" data-ic="dots"></button>
   </div>
   <div class="r2">
-    <button id="play">▶</button>
+    <button id="play"></button>
     <div class="bpm"><button id="bpmDn">−</button><div><span id="bpmV">120</span><small data-i="bpm">BPM</small></div><button id="bpmUp">+</button></div>
     <div class="slots" id="slots"></div>
   </div>
 </header>
 <main id="main"></main>
 <nav>
-  <button data-tab="drums"><i>🥁</i><span data-i="tab_drums">Ritmo</span></button>
-  <button data-tab="bass"><i>🎸</i><span data-i="tab_bass">Bajo</span></button>
-  <button data-tab="synth"><i>🎹</i><span data-i="tab_synth">Synth</span></button>
-  <button data-tab="voice"><i>🎼</i><span data-i="tab_voice">Canción</span></button>
-  <button data-tab="mix"><i>🎚️</i><span data-i="tab_mix">Mezcla</span></button>
+  <button data-tab="drums"><i data-ic="drums"></i><span data-i="tab_drums">Drums</span></button>
+  <button data-tab="bass"><i data-ic="bass"></i><span data-i="tab_bass">Bass</span></button>
+  <button data-tab="synth"><i data-ic="synth"></i><span data-i="tab_synth">Synth</span></button>
+  <button data-tab="voice"><i data-ic="song"></i><span data-i="tab_voice">Song</span></button>
+  <button data-tab="mix"><i data-ic="mix"></i><span data-i="tab_mix">Mix</span></button>
 </nav>
 <div id="sheet" class="hide"><div class="sheet-in" id="sheetIn"></div></div>
 <div id="toast"></div>
@@ -172,6 +176,10 @@ input.txt{width:100%;height:46px;border-radius:10px;background:var(--bg);color:v
 <script>
 "use strict";
 const $=s=>document.querySelector(s);
+/* ---------- íconos: SVG de línea propios (sin emojis: se ven igual en todos los equipos y siguen el color del texto) ---------- */
+const ICONS={play:'<path d="M7 4.5v15l12.5-7.5z" fill="currentColor" stroke="none"/>',stop:'<rect x="6" y="6" width="12" height="12" rx="1.5" fill="currentColor" stroke="none"/>',rec:'<circle cx="12" cy="12" r="6" fill="currentColor" stroke="none"/>',undo:'<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',redo:'<path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>',gear:'<path d="M18.88 9.87 L21.86 10.31 L21.86 13.69 L18.88 14.13 L18.37 15.36 L20.17 17.77 L17.77 20.17 L15.36 18.37 L14.13 18.88 L13.69 21.86 L10.31 21.86 L9.87 18.88 L8.64 18.37 L6.23 20.17 L3.83 17.77 L5.63 15.36 L5.12 14.13 L2.14 13.69 L2.14 10.31 L5.12 9.87 L5.63 8.64 L3.83 6.23 L6.23 3.83 L8.64 5.63 L9.87 5.12 L10.31 2.14 L13.69 2.14 L14.13 5.12 L15.36 5.63 L17.77 3.83 L20.17 6.23 L18.37 8.64Z"/><circle cx="12" cy="12" r="3"/>',dots:'<circle cx="5" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.7" fill="currentColor" stroke="none"/>',drums:'<ellipse cx="12" cy="10" rx="8" ry="3"/><path d="M4 10v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5"/><path d="m7 3 4 5m6-5-4 5"/>',bass:'<path d="M2 12c2.5-7 5.5-7 8 0s5.5 7 8 0"/><path d="M18 12h4"/>',synth:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 13v7m6-7v7"/><rect x="7.4" y="4" width="3.2" height="9" rx=".6" fill="currentColor" stroke="none"/><rect x="13.4" y="4" width="3.2" height="9" rx=".6" fill="currentColor" stroke="none"/>',song:'<rect x="3" y="5" width="7" height="5" rx="1.2"/><rect x="12" y="5" width="9" height="5" rx="1.2"/><rect x="3" y="14" width="11" height="5" rx="1.2"/><rect x="16" y="14" width="5" height="5" rx="1.2"/>',loop:'<path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/>',mix:'<path d="M6 3v18M12 3v18M18 3v18"/><rect x="3.5" y="12" width="5" height="3.5" rx="1" fill="currentColor" stroke="none"/><rect x="9.5" y="6" width="5" height="3.5" rx="1" fill="currentColor" stroke="none"/><rect x="15.5" y="14.5" width="5" height="3.5" rx="1" fill="currentColor" stroke="none"/>',download:'<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>',upload:'<path d="M12 21V9"/><path d="m7 14 5-5 5 5"/><path d="M5 3h14"/>',copy:'<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/>',save:'<path d="M5 3h11l5 5v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3"/><path d="M7 21v-7h10v7"/>',folder:'<path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',layout:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',dice:'<rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.5" fill="currentColor" stroke="none"/>',trash:'<path d="M4 7h16"/><path d="M10 11v6m4-6v6"/><path d="m6 7 1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13"/><path d="M9 7V4h6v3"/>',pencil:'<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="m13.5 6.5 4 4"/>',chevL:'<path d="m15 18-6-6 6-6"/>',chevR:'<path d="m9 18 6-6-6-6"/>'};
+const ic=(n,lead)=>`<svg class="ic${lead?' lead':''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]}</svg>`;
+function paintIcons(){document.querySelectorAll('[data-ic]').forEach(e=>e.innerHTML=ic(e.dataset.ic));}
 /* ---------- TAKT se llamaba "Estudio·Bolsillo": las claves viejas 'estudio-bolsillo-*' pasan a 'takt-*' una sola vez ---------- */
 (function migrateKeys(){try{const OLD='estudio-bolsillo-',ks=Object.keys(localStorage).filter(k=>k.startsWith(OLD)&&k!==OLD+'p:');if(!ks.length)return;
   for(const k of ks){const nk='takt-'+k.slice(OLD.length);if(localStorage.getItem(nk)==null)localStorage.setItem(nk,localStorage.getItem(k));}
@@ -183,20 +191,20 @@ es:{song:"Canción",song_title:"Modo canción: suena el arreglo",menu:"Menú",pl
   tab_drums:"Ritmo",tab_bass:"Bajo",tab_synth:"Synth",tab_voice:"Canción",tab_mix:"Mezcla",
   dr_kick:"Bombo",dr_snare:"Caja",dr_clap:"Palmas",dr_hat:"Hat",dr_ohat:"Hat abierto",dr_ohat_s:"H.abierto",dr_tom:"Tom",
   kit:"Kit",custom:"Personalizado",snd_prev:"Sonido anterior",snd_next:"Sonido siguiente",snd_track:"Sonido de la pista",
-  hint_step:"Tocá un paso: encendido → acento → apagado",accent_badge:"ACENTO",rand_drums:"🎲 Ritmo sorpresa",clear_drums:"Borrar ritmo",
-  steps_r:"Pasos {0}–{1}",pat_len:"Largo",md_hit:"Golpe",md_rat:"Redoble",md_prob:"Probabilidad",md_vel:"Volumen",md_nud:"Corrimiento",md_live:"En vivo",hint_vel:"Tocá un paso y ajustá su volumen abajo.",hint_nud:"Tocá un paso y movelo antes o después (en % de un paso).",st_n:"Paso {0}",tl_lbl:"Largo de pista",tl_same:"Igual al patrón",tl_steps:"{0} pasos",lv_rec:"● Grabar golpes",lv_rec_on:"■ Grabando golpes",lv_hint:"Tocá los pads para que suenen. Con el beat sonando y la grabación encendida, cada golpe se guarda en el paso más cercano.",humanize:"Humanizar",fx_lo:"Graves",fx_mid:"Medios",fx_hi:"Agudos",fx_flt:"Filtro",fx_flt_hint:"A la izquierda corta agudos; a la derecha, graves.",fx_drv:"Distorsión",fx_crs:"Bitcrusher",fx_cho:"Chorus",fx_reset:"Restablecer efectos",m_tpl:"🎛 Plantillas por género",tpl_title:"Plantillas por género",tpl_info:"Crea un proyecto nuevo con el ritmo, el bajo, los acordes, el kit y el tempo del género. El patrón B trae un remate.",t_tpl:"Proyecto nuevo: {0}",hint_rat:"Tocá un paso para repetirlo: ×2 → ×3 → ×4",hint_prob:"Tocá un paso para que suene a veces: 75 % → 50 % → 25 %",undo:"Deshacer",redo:"Rehacer",t_noundo:"Nada para deshacer",t_undo:"Deshecho",t_redo:"Rehecho",sidechain:"Sidechain",sc_hint:"El bombo baja un instante el bajo y el synth: el efecto \"bombeo\".",accent:"Acento",slide:"Ligado",
+  hint_step:"Tocá un paso: encendido → acento → apagado",accent_badge:"ACENTO",rand_drums:"Ritmo sorpresa",clear_drums:"Borrar ritmo",
+  steps_r:"Pasos {0}–{1}",pat_len:"Largo",md_hit:"Golpe",md_rat:"Redoble",md_prob:"Probabilidad",md_vel:"Volumen",md_nud:"Corrimiento",md_live:"En vivo",hint_vel:"Tocá un paso y ajustá su volumen abajo.",hint_nud:"Tocá un paso y movelo antes o después (en % de un paso).",st_n:"Paso {0}",tl_lbl:"Largo de pista",tl_same:"Igual al patrón",tl_steps:"{0} pasos",lv_rec:"Grabar golpes",lv_rec_on:"Grabando golpes",lv_hint:"Tocá los pads para que suenen. Con el beat sonando y la grabación encendida, cada golpe se guarda en el paso más cercano.",humanize:"Humanizar",fx_lo:"Graves",fx_mid:"Medios",fx_hi:"Agudos",fx_flt:"Filtro",fx_flt_hint:"A la izquierda corta agudos; a la derecha, graves.",fx_drv:"Distorsión",fx_crs:"Bitcrusher",fx_cho:"Chorus",fx_reset:"Restablecer efectos",m_tpl:"Plantillas por género",tpl_title:"Plantillas por género",tpl_info:"Crea un proyecto nuevo con el ritmo, el bajo, los acordes, el kit y el tempo del género. El patrón B trae un remate.",t_tpl:"Proyecto nuevo: {0}",hint_rat:"Tocá un paso para repetirlo: ×2 → ×3 → ×4",hint_prob:"Tocá un paso para que suene a veces: 75 % → 50 % → 25 %",undo:"Deshacer",redo:"Rehacer",t_noundo:"Nada para deshacer",t_undo:"Deshecho",t_redo:"Rehecho",sidechain:"Sidechain",sc_hint:"El bombo baja un instante el bajo y el synth: el efecto \"bombeo\".",accent:"Acento",slide:"Ligado",
   bass_sound:"Sonido del bajo",wave:"Onda",saw:"Sierra",square:"Cuadrada",square_s:"Cuadr.",tri_s:"Triáng.",octave:"Octava",filter:"Filtro",res:"Resonancia",envamt:"Envolvente",decay:"Decaimiento",drive:"Distorsión",
-  rand_bass:"🎲 Bajo sorpresa",clear_bass:"Borrar bajo",syn_sound:"Sonido del synth",length:"Duración",attack:"Ataque",release:"Cola",detune:"Desafinado",rand_synth:"🎲 Acordes sorpresa",clear_synth:"Borrar synth",
+  rand_bass:"Bajo sorpresa",clear_bass:"Borrar bajo",syn_sound:"Sonido del synth",length:"Duración",attack:"Ataque",release:"Cola",detune:"Desafinado",rand_synth:"Acordes sorpresa",clear_synth:"Borrar synth",
   ch_drums:"Ritmo",ch_bass:"Bajo",ch_synth:"Synth",ch_voice:"Voz",muted:"Silenciado",mute:"Silenciar",volume:"Volumen",echo:"Eco",reverb:"Reverb",
   key_groove:"Tonalidad y groove",key:"Tonalidad",swing:"Swing",fx_out:"Efectos y salida",echo_time:"Tiempo eco",feedback:"Repeticiones",master:"Volumen general",
   sc_Menor:"Menor",sc_Mayor:"Mayor","sc_Pentatónica":"Pentatónica","sc_Dórica":"Dórica",sc_Frigia:"Frigia",sc_Blues:"Blues",
-  project:"Proyecto",m_export:"🎧 Exportar audio (WAV)",m_dup:"⧉ Duplicar patrón {0} → {1}",m_save:"💾 Guardar proyecto (.json)",m_open:"📂 Abrir proyecto",settings:"Configuración",set_lang:"Idioma",set_quality:"Calidad de exportación",set_q_hint:"48 kHz y 24 bits dan archivos más grandes; para compartir alcanza con 44,1 kHz y 16 bits.",set_ver:"TAKT · versión {0}",m_clear:"Borrar patrón {0}",m_reset:"Empezar de cero",
+  project:"Proyecto",m_export:"Exportar audio (WAV)",m_dup:"Duplicar patrón {0} → {1}",m_save:"Guardar proyecto (.json)",m_open:"Abrir proyecto",settings:"Configuración",set_lang:"Idioma",set_quality:"Calidad de exportación",set_q_hint:"48 kHz y 24 bits dan archivos más grandes; para compartir alcanza con 44,1 kHz y 16 bits.",set_ver:"TAKT · versión {0}",m_clear:"Borrar patrón {0}",m_reset:"Empezar de cero",
   ex_title:"Exportar audio",ex_song:"Canción de {0} compases",ex_pat:"Patrón",ex_rep:"repetido:",ex_info:"Duración ≈ {0} s · WAV {1}. Se descarga un .zip con el archivo adentro.",ex_go:"Exportar",rendering:"Renderizando…",wait:"Un momento.",
   reset_q:"¿Empezar de cero?",reset_info:"Se borran los 4 patrones, el arreglo, las tomas de voz y los ajustes de este proyecto.",reset_yes:"Sí, borrar todo",cancel:"Cancelar",
   t_export_fail:"No se pudo exportar",t_copied:"Copiado en {0}",t_opened:"Proyecto abierto",t_badfile:"Ese archivo no es un proyecto válido",t_done:"Listo",t_cancelled:"Cancelado",t_wait:"Esperá un momento y probá de nuevo",t_nodl:"Este visor no permite descargas",
-  t_song_on:"Modo canción: suena el arreglo de compases",t_song_off:"Modo patrón: se repite el patrón elegido",s_arr:"Arreglo y voz",s_brush:"Patrón",s_on:"🎼 Canción",s_off:"🔁 Patrón",s_mode_on:"Suena el arreglo, compás por compás.",s_mode_off:"Ahora se repite solo el patrón elegido. Encendé 🎼 Canción para escuchar el arreglo.",s_hint:"Elegí un patrón y tocá los compases para ubicarlo; ✕ deja el compás en silencio. Un patrón de 32 pasos ocupa 2 compases seguidos.",s_rec_from:"Grabar desde",s_fill:"Todo {0}",m_projects:"📁 Proyectos",pj_title:"Proyectos",pj_new:"+ Proyecto nuevo",pj_def:"Proyecto {0}",pj_first:"Mi proyecto",pj_copy:"{0} (copia)",pj_cur:"abierto",pj_rename:"Renombrar",pj_dup:"Duplicar",pj_del:"Borrar",pj_save:"Guardar",pj_del_q:"¿Borrar «{0}»?",pj_del_info:"Se borran sus patrones y sus tomas de voz. No se puede deshacer.",t_pj_open:"Abierto: {0}",t_pj_new:"Proyecto nuevo creado",t_pj_dup:"Copia creada",t_pj_del:"Proyecto borrado",t_json_voice:"Guardado. Las tomas de voz quedan solo en este equipo.",
+  t_song_on:"Modo canción: suena el arreglo de compases",t_song_off:"Modo patrón: se repite el patrón elegido",s_arr:"Arreglo y voz",s_brush:"Patrón",s_on:"Canción",s_off:"Patrón",s_mode_on:"Suena el arreglo, compás por compás.",s_mode_off:"Ahora se repite solo el patrón elegido. Encendé el modo Canción para escuchar el arreglo.",s_hint:"Elegí un patrón y tocá los compases para ubicarlo; ✕ deja el compás en silencio. Un patrón de 32 pasos ocupa 2 compases seguidos.",s_rec_from:"Grabar desde",s_fill:"Todo {0}",m_projects:"Proyectos",pj_title:"Proyectos",pj_new:"+ Proyecto nuevo",pj_def:"Proyecto {0}",pj_first:"Mi proyecto",pj_copy:"{0} (copia)",pj_cur:"abierto",pj_rename:"Renombrar",pj_dup:"Duplicar",pj_del:"Borrar",pj_save:"Guardar",pj_del_q:"¿Borrar «{0}»?",pj_del_info:"Se borran sus patrones y sus tomas de voz. No se puede deshacer.",t_pj_open:"Abierto: {0}",t_pj_new:"Proyecto nuevo creado",t_pj_dup:"Copia creada",t_pj_del:"Proyecto borrado",t_json_voice:"Guardado. Las tomas de voz quedan solo en este equipo.",
   lang_title:"Idioma",
-  v_timeline:"Línea de tiempo de voz",v_bars:"Compases",v_rec:"● Grabar desde el compás {0}",v_stop:"■ Parar y guardar",v_count:"Cuenta…",v_recording:"● Grabando",
+  v_timeline:"Línea de tiempo de voz",v_bars:"Compases",v_rec:"Grabar desde el compás {0}",v_stop:"Parar y guardar",v_count:"Cuenta…",v_recording:"Grabando",
   v_hint:"Tocá un compás para elegir dónde empezar. Antes de grabar suena 1 compás de cuenta. Usá auriculares para que el beat no se meta en la grabación.",
   v_takes:"Tomas",v_none:"Todavía no grabaste nada.",v_take:"Toma {0}",v_bar:"compás {0}",v_noaudio:"sin audio en este equipo",v_outside:"fuera de la línea de tiempo",v_play:"Escuchar",v_del:"Borrar",
   v_sync:"Sincronía",v_lat:"Ajuste (ms)",v_lat_hint:"Si la voz suena atrasada respecto del beat, subí el ajuste; si suena adelantada, bajalo. Vale para las próximas tomas.",
@@ -206,20 +214,20 @@ en:{song:"Song",song_title:"Song mode: play the arrangement",menu:"Menu",play:"P
   tab_drums:"Drums",tab_bass:"Bass",tab_synth:"Synth",tab_voice:"Song",tab_mix:"Mix",
   dr_kick:"Kick",dr_snare:"Snare",dr_clap:"Clap",dr_hat:"Hat",dr_ohat:"Open hat",dr_ohat_s:"O.hat",dr_tom:"Tom",
   kit:"Kit",custom:"Custom",snd_prev:"Previous sound",snd_next:"Next sound",snd_track:"Track sound",
-  hint_step:"Tap a step: on → accent → off",accent_badge:"ACCENT",rand_drums:"🎲 Random beat",clear_drums:"Clear beat",
-  steps_r:"Steps {0}–{1}",pat_len:"Length",md_hit:"Hit",md_rat:"Ratchet",md_prob:"Chance",md_vel:"Velocity",md_nud:"Nudge",md_live:"Live",hint_vel:"Tap a step and set its velocity below.",hint_nud:"Tap a step and move it earlier or later (in % of a step).",st_n:"Step {0}",tl_lbl:"Track length",tl_same:"Same as pattern",tl_steps:"{0} steps",lv_rec:"● Record hits",lv_rec_on:"■ Recording hits",lv_hint:"Tap the pads to play them. With the beat running and recording on, each hit is saved to the nearest step.",humanize:"Humanize",fx_lo:"Low",fx_mid:"Mid",fx_hi:"High",fx_flt:"Filter",fx_flt_hint:"Left cuts the highs; right cuts the lows.",fx_drv:"Drive",fx_crs:"Bitcrusher",fx_cho:"Chorus",fx_reset:"Reset effects",m_tpl:"🎛 Genre templates",tpl_title:"Genre templates",tpl_info:"Creates a new project with the genre's beat, bass, chords, kit and tempo. Pattern B adds a fill.",t_tpl:"New project: {0}",hint_rat:"Tap a step to repeat it: ×2 → ×3 → ×4",hint_prob:"Tap a step so it plays only sometimes: 75 % → 50 % → 25 %",undo:"Undo",redo:"Redo",t_noundo:"Nothing to undo",t_undo:"Undone",t_redo:"Redone",sidechain:"Sidechain",sc_hint:"The kick briefly ducks the bass and synth: the \"pumping\" effect.",accent:"Accent",slide:"Slide",
+  hint_step:"Tap a step: on → accent → off",accent_badge:"ACCENT",rand_drums:"Random beat",clear_drums:"Clear beat",
+  steps_r:"Steps {0}–{1}",pat_len:"Length",md_hit:"Hit",md_rat:"Ratchet",md_prob:"Chance",md_vel:"Velocity",md_nud:"Nudge",md_live:"Live",hint_vel:"Tap a step and set its velocity below.",hint_nud:"Tap a step and move it earlier or later (in % of a step).",st_n:"Step {0}",tl_lbl:"Track length",tl_same:"Same as pattern",tl_steps:"{0} steps",lv_rec:"Record hits",lv_rec_on:"Recording hits",lv_hint:"Tap the pads to play them. With the beat running and recording on, each hit is saved to the nearest step.",humanize:"Humanize",fx_lo:"Low",fx_mid:"Mid",fx_hi:"High",fx_flt:"Filter",fx_flt_hint:"Left cuts the highs; right cuts the lows.",fx_drv:"Drive",fx_crs:"Bitcrusher",fx_cho:"Chorus",fx_reset:"Reset effects",m_tpl:"Genre templates",tpl_title:"Genre templates",tpl_info:"Creates a new project with the genre's beat, bass, chords, kit and tempo. Pattern B adds a fill.",t_tpl:"New project: {0}",hint_rat:"Tap a step to repeat it: ×2 → ×3 → ×4",hint_prob:"Tap a step so it plays only sometimes: 75 % → 50 % → 25 %",undo:"Undo",redo:"Redo",t_noundo:"Nothing to undo",t_undo:"Undone",t_redo:"Redone",sidechain:"Sidechain",sc_hint:"The kick briefly ducks the bass and synth: the \"pumping\" effect.",accent:"Accent",slide:"Slide",
   bass_sound:"Bass sound",wave:"Wave",saw:"Saw",square:"Square",square_s:"Square",tri_s:"Triangle",octave:"Octave",filter:"Filter",res:"Resonance",envamt:"Envelope",decay:"Decay",drive:"Drive",
-  rand_bass:"🎲 Random bass",clear_bass:"Clear bass",syn_sound:"Synth sound",length:"Length",attack:"Attack",release:"Release",detune:"Detune",rand_synth:"🎲 Random chords",clear_synth:"Clear synth",
+  rand_bass:"Random bass",clear_bass:"Clear bass",syn_sound:"Synth sound",length:"Length",attack:"Attack",release:"Release",detune:"Detune",rand_synth:"Random chords",clear_synth:"Clear synth",
   ch_drums:"Drums",ch_bass:"Bass",ch_synth:"Synth",ch_voice:"Voice",muted:"Muted",mute:"Mute",volume:"Volume",echo:"Echo",reverb:"Reverb",
   key_groove:"Key and groove",key:"Key",swing:"Swing",fx_out:"Effects and output",echo_time:"Echo time",feedback:"Feedback",master:"Master volume",
   sc_Menor:"Minor",sc_Mayor:"Major","sc_Pentatónica":"Pentatonic","sc_Dórica":"Dorian",sc_Frigia:"Phrygian",sc_Blues:"Blues",
-  project:"Project",m_export:"🎧 Export audio (WAV)",m_dup:"⧉ Duplicate pattern {0} → {1}",m_save:"💾 Save project (.json)",m_open:"📂 Open project",settings:"Settings",set_lang:"Language",set_quality:"Export quality",set_q_hint:"48 kHz and 24 bits make bigger files; 44.1 kHz and 16 bits is enough for sharing.",set_ver:"TAKT · version {0}",m_clear:"Clear pattern {0}",m_reset:"Start over",
+  project:"Project",m_export:"Export audio (WAV)",m_dup:"Duplicate pattern {0} → {1}",m_save:"Save project (.json)",m_open:"Open project",settings:"Settings",set_lang:"Language",set_quality:"Export quality",set_q_hint:"48 kHz and 24 bits make bigger files; 44.1 kHz and 16 bits is enough for sharing.",set_ver:"TAKT · version {0}",m_clear:"Clear pattern {0}",m_reset:"Start over",
   ex_title:"Export audio",ex_song:"Song of {0} bars",ex_pat:"Pattern",ex_rep:"repeated:",ex_info:"Length ≈ {0} s · WAV {1}. You get a .zip with the file inside.",ex_go:"Export",rendering:"Rendering…",wait:"One moment.",
   reset_q:"Start over?",reset_info:"This deletes the 4 patterns, the arrangement, the voice takes and the settings of this project.",reset_yes:"Yes, delete everything",cancel:"Cancel",
   t_export_fail:"Export failed",t_copied:"Copied to {0}",t_opened:"Project opened",t_badfile:"That file is not a valid project",t_done:"Done",t_cancelled:"Cancelled",t_wait:"Wait a moment and try again",t_nodl:"This viewer does not allow downloads",
-  t_song_on:"Song mode: the bar arrangement plays",t_song_off:"Pattern mode: the selected pattern loops",s_arr:"Arrangement and voice",s_brush:"Pattern",s_on:"🎼 Song",s_off:"🔁 Pattern",s_mode_on:"The arrangement plays, bar by bar.",s_mode_off:"Only the selected pattern loops now. Turn on 🎼 Song to hear the arrangement.",s_hint:"Pick a pattern and tap bars to place it; ✕ leaves the bar silent. A 32-step pattern spans 2 bars in a row.",s_rec_from:"Record from",s_fill:"All {0}",m_projects:"📁 Projects",pj_title:"Projects",pj_new:"+ New project",pj_def:"Project {0}",pj_first:"My project",pj_copy:"{0} (copy)",pj_cur:"open",pj_rename:"Rename",pj_dup:"Duplicate",pj_del:"Delete",pj_save:"Save",pj_del_q:"Delete “{0}”?",pj_del_info:"Its patterns and voice takes are deleted. This cannot be undone.",t_pj_open:"Opened: {0}",t_pj_new:"New project created",t_pj_dup:"Copy created",t_pj_del:"Project deleted",t_json_voice:"Saved. Voice takes stay on this device only.",
+  t_song_on:"Song mode: the bar arrangement plays",t_song_off:"Pattern mode: the selected pattern loops",s_arr:"Arrangement and voice",s_brush:"Pattern",s_on:"Song",s_off:"Pattern",s_mode_on:"The arrangement plays, bar by bar.",s_mode_off:"Only the selected pattern loops now. Turn on Song mode to hear the arrangement.",s_hint:"Pick a pattern and tap bars to place it; ✕ leaves the bar silent. A 32-step pattern spans 2 bars in a row.",s_rec_from:"Record from",s_fill:"All {0}",m_projects:"Projects",pj_title:"Projects",pj_new:"+ New project",pj_def:"Project {0}",pj_first:"My project",pj_copy:"{0} (copy)",pj_cur:"open",pj_rename:"Rename",pj_dup:"Duplicate",pj_del:"Delete",pj_save:"Save",pj_del_q:"Delete “{0}”?",pj_del_info:"Its patterns and voice takes are deleted. This cannot be undone.",t_pj_open:"Opened: {0}",t_pj_new:"New project created",t_pj_dup:"Copy created",t_pj_del:"Project deleted",t_json_voice:"Saved. Voice takes stay on this device only.",
   lang_title:"Language",
-  v_timeline:"Voice timeline",v_bars:"Bars",v_rec:"● Record from bar {0}",v_stop:"■ Stop and save",v_count:"Count-in…",v_recording:"● Recording",
+  v_timeline:"Voice timeline",v_bars:"Bars",v_rec:"Record from bar {0}",v_stop:"Stop and save",v_count:"Count-in…",v_recording:"Recording",
   v_hint:"Tap a bar to choose where to start. A 1-bar count-in plays before recording. Use headphones so the beat does not leak into the recording.",
   v_takes:"Takes",v_none:"Nothing recorded yet.",v_take:"Take {0}",v_bar:"bar {0}",v_noaudio:"no audio on this device",v_outside:"outside the timeline",v_play:"Listen",v_del:"Delete",
   v_sync:"Sync",v_lat:"Offset (ms)",v_lat_hint:"If the voice sounds late against the beat, raise the offset; if it sounds early, lower it. Applies to the next takes.",
@@ -227,9 +235,9 @@ en:{song:"Song",song_title:"Song mode: play the arrangement",menu:"Menu",play:"P
   t_mic_denied:"Could not use the microphone",t_mic_none:"This device cannot record",t_too_short:"The take was too short",t_take_saved:"{0} saved",t_nostore:"Could not store the audio: it will be lost when the app closes"}
 };
 let lang=(()=>{try{const l=localStorage.getItem(LANG_KEY);return l==='en'||l==='es'?l:null;}catch(e){return null;}})();
-const guessLang=(navigator.language||'').toLowerCase().startsWith('es')?'es':'en';
+const guessLang='en'; // la app arranca en inglés; el español se elige en el selector inicial o en ⚙
 const L=()=>lang||guessLang;
-function t(k,...a){let s=I18N[L()][k];if(s==null)s=I18N.es[k];if(s==null)s=k;a.forEach((v,i)=>{s=s.split('{'+i+'}').join(v);});return s;}
+function t(k,...a){let s=I18N[L()][k];if(s==null)s=I18N.en[k];if(s==null)s=k;a.forEach((v,i)=>{s=s.split('{'+i+'}').join(v);});return s;}
 const NOTES={es:['Do','Do#','Re','Re#','Mi','Fa','Fa#','Sol','Sol#','La','La#','Si'],en:['C','C#','D','D#','E','F','F#','G','G#','A','A#','B']};
 const noteName=i=>NOTES[L()][i];
 const SCALES={'Menor':[0,2,3,5,7,8,10],'Mayor':[0,2,4,5,7,9,11],'Pentatónica':[0,3,5,7,10],'Dórica':[0,2,3,5,7,9,10],'Frigia':[0,1,3,5,7,8,10],'Blues':[0,3,5,6,7,10]};
@@ -723,25 +731,19 @@ const mBuf=new Float32Array(256),mVal={};
 function drawMeters(){for(const k of CH){const el=document.getElementById('mt-'+k),a=G.ch[k].an;if(!el||!a)continue;a.getFloatTimeDomainData(mBuf);
   let pk=0;for(let i=0;i<mBuf.length;i++){const v=Math.abs(mBuf[i]);if(v>pk)pk=v;}mVal[k]=Math.max(pk,(mVal[k]||0)*0.92);
   const db=20*Math.log10(Math.max(mVal[k],1e-5));el.style.width=Math.max(0,Math.min(100,(db+48)/48*100))+'%'; /* escala de -48 a 0 dB */el.classList.toggle('hot',mVal[k]>0.95);}}
-const scope=$('#scope'),sctx=scope.getContext('2d');let scopeBuf=null,clipT=-1e9,scopeLvl=0;
-// osciloscopio de la cabecera: la forma de onda de la salida; el grosor y el brillo siguen el volumen
+const scope=$('#scope'),sctx=scope.getContext('2d');let scopeBuf=null,clipT=-1e9;
 function drawScope(){const dpr=window.devicePixelRatio||1,w=scope.clientWidth,h=scope.clientHeight;if(!w)return;
   if(scope.width!==w*dpr){scope.width=w*dpr;scope.height=h*dpr;}
-  sctx.setTransform(dpr,0,0,dpr,0,0);sctx.clearRect(0,0,w,h);sctx.strokeStyle='#ff7a3d';sctx.lineJoin='round';sctx.lineCap='round';sctx.beginPath();
-  // la línea se dibuja con un margen para que, gruesa, no se corte contra el borde del canvas
-  const m=4,ih=h-2*m;let lvl=0;
-  if(G&&G.an){if(!scopeBuf)scopeBuf=new Float32Array(G.an.fftSize);G.an.getFloatTimeDomainData(scopeBuf);let pk=0,ss=0;
-    for(let i=0;i<scopeBuf.length;i++){const v=scopeBuf[i],x=m+i/(scopeBuf.length-1)*(w-2*m),y=m+(1-v)/2*ih;const a=Math.abs(v);if(a>pk)pk=a;ss+=v*v;i?sctx.lineTo(x,y):sctx.moveTo(x,y);}
-    lvl=Math.min(1,Math.sqrt(ss/scopeBuf.length)*3.2);
+  sctx.setTransform(dpr,0,0,dpr,0,0);sctx.clearRect(0,0,w,h);sctx.strokeStyle='#ff7a3d';sctx.lineWidth=1.5;sctx.beginPath();
+  if(G&&G.an){if(!scopeBuf)scopeBuf=new Float32Array(G.an.fftSize);G.an.getFloatTimeDomainData(scopeBuf);let pk=0;
+    for(let i=0;i<scopeBuf.length;i++){const v=scopeBuf[i],x=i/(scopeBuf.length-1)*w,y=(1-v)/2*h;if(Math.abs(v)>pk)pk=Math.abs(v);i?sctx.lineTo(x,y):sctx.moveTo(x,y);}
     // aviso de saturación: rojo durante ~0,5 s cuando la salida toca el techo
     if(pk>0.97)clipT=performance.now();scope.classList.toggle('clip',performance.now()-clipT<500);}
-  else{sctx.moveTo(m,h/2);sctx.lineTo(w-m,h/2);}
-  scopeLvl=lvl>scopeLvl?scopeLvl+(lvl-scopeLvl)*0.6:scopeLvl*0.9; // sube rápido, baja suave
-  sctx.lineWidth=1.5+scopeLvl*5.5;sctx.shadowColor='#ff7a3d';sctx.shadowBlur=scopeLvl*10;sctx.stroke();sctx.shadowBlur=0;}
+  else{sctx.moveTo(0,h/2);sctx.lineTo(w,h/2);}sctx.stroke();}
 
 /* ---------- vistas ---------- */
 function renderHeader(){
-  $('#bpmV').textContent=state.bpm;$('#play').classList.toggle('on',playing);$('#play').textContent=playing?'■':'▶';
+  $('#bpmV').textContent=state.bpm;$('#play').classList.toggle('on',playing);$('#play').innerHTML=ic(playing?'stop':'play');
   $('#songBtn').classList.toggle('on',state.song.on);
   $('#slots').innerHTML=state.patterns.map((p,i)=>`<button class="slot ${i===state.cur?'on':''} ${isEmpty(p)?'':'has'} ${playing&&i===shownPat?'playing':''}" data-slot="${i}">${'ABCD'[i]}</button>`).join('');
 }
@@ -755,13 +757,13 @@ function viewDrums(){
   const P=pat(),arr=P.drums[selDrum],ck=curKit(),sndOf=x=>SND[state.snd[x.id]]||SND[x.def];
   let h=`<div class="kitbar"><span>${t('kit')}</span><select data-sel="kit" aria-label="${t('kit')}">${ck?'':`<option value="" selected>${t('custom')}</option>`}${KITS.map(k=>`<option value="${k[0]}" ${k[0]===ck?'selected':''}>${kitName(k)}</option>`).join('')}</select></div>`;
   h+=`<div class="chips">${DRUMS.map(x=>`<button class="chip ${x.id===selDrum?'on':''}" data-k="dsel" data-id="${x.id}" style="--c:var(--${x.id})"><span class="led" id="led-${x.id}"></span><span class="cn">${t('dr_'+x.id)}<small>${sName(sndOf(x))}</small></span></button>`).join('')}</div>`;
-  h+=`<div class="sndbar" style="--c:var(--${selDrum})"><button data-k="sstep" data-v="-1" aria-label="${t('snd_prev')}">◀</button><select data-sel="snd" aria-label="${t('snd_track')}">${CATS.map(cat=>`<optgroup label="${catName(cat)}">${SND_LIST.filter(s=>s.cat===cat).map(s=>`<option value="${s.id}" ${s.id===sndOf(DRUMS.find(d=>d.id===selDrum)).id?'selected':''}>${sName(s)}</option>`).join('')}</optgroup>`).join('')}</select><button data-k="sstep" data-v="1" aria-label="${t('snd_next')}">▶</button></div>`;
+  h+=`<div class="sndbar" style="--c:var(--${selDrum})"><button data-k="sstep" data-v="-1" aria-label="${t('snd_prev')}">${ic('chevL')}</button><select data-sel="snd" aria-label="${t('snd_track')}">${CATS.map(cat=>`<optgroup label="${catName(cat)}">${SND_LIST.filter(s=>s.cat===cat).map(s=>`<option value="${s.id}" ${s.id===sndOf(DRUMS.find(d=>d.id===selDrum)).id?'selected':''}>${sName(s)}</option>`).join('')}</optgroup>`).join('')}</select><button data-k="sstep" data-v="1" aria-label="${t('snd_next')}">${ic('chevR')}</button></div>`;
   const n=P.len,pages=n>16?2:1;if(drumPage>=pages)drumPage=0;
   h+=`<div class="sndbar">${segK(t('pat_len'),'plen',LENS.map(x=>[x,String(x)]),n)}</div>`;
   h+=`<div class="modes">${['hit','rat','prob','vel','nud','live'].map(m=>`<button data-k="dmode" data-v="${m}" class="${m===dmode?'on':''}">${t('md_'+m)}</button>`).join('')}</div>`;
   if(dmode==='live'){
     h+=`<div class="lpads">${DRUMS.map(x=>`<button class="lpad" data-live="${x.id}" style="--c:var(--${x.id})">${t('dr_'+x.id)}<small>${sName(sndOf(x))}</small></button>`).join('')}</div>
-    <button class="recbtn ${liveRec?'on':''}" data-k="liverec">${liveRec?t('lv_rec_on'):t('lv_rec')}</button><p class="hint">${t('lv_hint')}</p>`;
+    <button class="recbtn ${liveRec?'on':''}" data-k="liverec">${ic(liveRec?'stop':'rec','lead')}${liveRec?t('lv_rec_on'):t('lv_rec')}</button><p class="hint">${t('lv_hint')}</p>`;
     return h+viewOverview(P,n)+drumTools();}
   const TL=P.tl[selDrum];
   h+=`<div class="kitbar sndbar"><span>${t('tl_lbl')}</span><select data-sel="tl" aria-label="${t('tl_lbl')}"><option value="0">${t('tl_same')}</option>${Array.from({length:n-1},(_,i)=>i+2).map(x=>`<option value="${x}" ${x===TL?'selected':''}>${t('tl_steps',x)}</option>`).join('')}</select></div>`;
@@ -777,7 +779,7 @@ function viewDrums(){
 function padInner(P,i){const r=P.rat[selDrum][i],pr=P.prob[selDrum][i],vl=P.vel[selDrum][i],nd=P.nud[selDrum][i];
   return `<span>${i+1}</span>${r>1?`<em>×${r}</em>`:''}${dmode==='nud'?(nd?`<b>${nd>0?'+':''}${nd}%</b>`:''):pr<100?`<b>${pr}%</b>`:''}${P.drums[selDrum][i]&&(dmode==='vel'||vl<100)?`<i class="vb" style="height:${vl}%"></i>`:''}`;}
 function viewOverview(P,n){return `<div class="ov">${DRUMS.map(x=>{const L=P.tl[x.id];return `<div class="ovrow" style="--c:var(--${x.id});--n:${n}"><span>${x.id==='ohat'?t('dr_ohat_s'):t('dr_'+x.id)}</span>${P.drums[x.id].slice(0,n).map((v,i)=>`<i class="v${v}${i%4===0?' b':''}${L&&i>=L?' out':''}" data-k="ostep" data-id="${x.id}" data-col="${i}"></i>`).join('')}</div>`;}).join('')}</div>`;}
-const drumTools=()=>`<div class="tools"><button data-k="rand" data-what="drums">${t('rand_drums')}</button><button data-k="clear" data-what="drums">${t('clear_drums')}</button></div>`;
+const drumTools=()=>`<div class="tools"><button data-k="rand" data-what="drums">${ic('dice','lead')}${t('rand_drums')}</button><button data-k="clear" data-what="drums">${t('clear_drums')}</button></div>`;
 function viewGrid(kind){
   const P=pat(),pages=P.len/8;let page=kind==='bass'?bassPage:synPage;if(page>=pages){page=0;if(kind==='bass')bassPage=0;else synPage=0;}
   const base=kind==='bass'?bassBase():synBase(),cols=[0,1,2,3,4,5,6,7].map(j=>page*8+j),sl=scale().length;
@@ -800,14 +802,14 @@ function viewBass(){
   return viewGrid('bass')+`<div class="card"><h3>${t('bass_sound')}</h3>
   ${seg(t('wave'),'bassP.wave',[['saw',t('saw')],['sq',t('square')]])}${seg(t('octave'),'bassP.oct',[[-1,'−1'],[0,'0'],[1,'+1']])}
   ${sl(t('filter'),'bassP.cut',0,1,.01)}${sl(t('res'),'bassP.res',0,1,.01)}${sl(t('envamt'),'bassP.env',0,1,.01)}${sl(t('decay'),'bassP.dec',0,1,.01)}${sl(t('drive'),'bassP.drive',0,1,.01)}</div>
-  <div class="tools"><button data-k="rand" data-what="bass">${t('rand_bass')}</button><button data-k="clear" data-what="bass">${t('clear_bass')}</button></div>`;
+  <div class="tools"><button data-k="rand" data-what="bass">${ic('dice','lead')}${t('rand_bass')}</button><button data-k="clear" data-what="bass">${t('clear_bass')}</button></div>`;
 }
 function viewSynth(){
   return viewGrid('synth')+`<div class="card"><h3>${t('syn_sound')}</h3>
   ${seg(t('wave'),'synP.wave',[['saw',t('saw')],['sq',t('square_s')],['tri',t('tri_s')]])}${seg(t('octave'),'synP.oct',[[-1,'−1'],[0,'0'],[1,'+1']])}
   ${seg(t('length'),'synP.len',[[1,'1'],[2,'2'],[3,'3'],[4,'4'],[8,'8']])}
   ${sl(t('attack'),'synP.att',0.001,0.8,.001)}${sl(t('release'),'synP.rel',0.05,2,.01)}${sl(t('filter'),'synP.cut',0,1,.01)}${sl(t('detune'),'synP.det',0,1,.01)}</div>
-  <div class="tools"><button data-k="rand" data-what="synth">${t('rand_synth')}</button><button data-k="clear" data-what="synth">${t('clear_synth')}</button></div>`;
+  <div class="tools"><button data-k="rand" data-what="synth">${ic('dice','lead')}${t('rand_synth')}</button><button data-k="clear" data-what="synth">${t('clear_synth')}</button></div>`;
 }
 function viewMix(){
   let h=CH.map(k=>`<div class="card"><h3>${t('ch_'+k)}<span class="meter"><i id="mt-${k}"></i></span><span class="h3b"><button data-k="fxo" data-ch="${k}" class="${fxOpen.has(k)?'on2':''}">FX</button><button data-k="mute" data-ch="${k}" class="${state.mix[k].m?'on':''}">${state.mix[k].m?t('muted'):t('mute')}</button></span></h3>
@@ -883,7 +885,7 @@ async function finishRec(){const r=rec;if(!r)return;rec=null;const endT=Math.min
 // pestaña Canción: el arreglo de patrones y la voz comparten la misma línea de compases, de a 8 por fila
 let brush=0;
 function viewVoice(){const nb=state.voice.bars,bd=16*stepDur(),seq=state.song.seq,so=state.song.on;if(recBar>=nb)recBar=0;
-  let h=`<div class="card"><h3>${t('s_arr')}<button data-k="song" class="${so?'on2':''}">${so?t('s_on'):t('s_off')}</button></h3>
+  let h=`<div class="card"><h3>${t('s_arr')}<button data-k="song" class="${so?'on2':''}">${ic(so?'song':'loop','lead')}${so?t('s_on'):t('s_off')}</button></h3>
   <p class="hint" style="text-align:left;margin:0 0 4px">${t(so?'s_mode_on':'s_mode_off')}</p>
   ${seg(t('v_bars'),'voice.bars',BARS.map(b=>[b,String(b)]))}
   <div class="seg"><span>${t('s_brush')}</span><div>${[0,1,2,3,-1].map(v=>`<button data-k="brush" data-v="${v}" class="${brush===v?'on':''}">${v<0?'✕':'ABCD'[v]}</button>`).join('')}</div></div>`;
@@ -895,9 +897,9 @@ function viewVoice(){const nb=state.voice.bars,bd=16*stepDur(),seq=state.song.se
     h+='</div>';}
   h+=`<div class="tools" style="margin-top:8px">${[0,1,2,3].map(v=>`<button data-k="sfill" data-v="${v}">${t('s_fill','ABCD'[v])}</button>`).join('')}</div>
   <p class="hint">${t('s_hint')}</p>
-  <button class="recbtn ${rec?'on':''}" data-k="rec">${rec?t('v_stop'):t('v_rec',recBar+1)}</button><div class="recstate" id="recstate"></div>
+  <button class="recbtn ${rec?'on':''}" data-k="rec">${ic(rec?'stop':'rec','lead')}${rec?t('v_stop'):t('v_rec',recBar+1)}</button><div class="recstate" id="recstate"></div>
   <p class="hint">${t('v_hint')}</p></div>`;
-  h+=`<div class="card"><h3>${t('v_takes')}</h3>${state.clips.length?state.clips.map(c=>`<div class="take"><div>${t('v_take',c.n)}<small>${t('v_bar',c.bar+1)} · ${c.dur.toFixed(1)} s${takeBuf.has(c.id)?'':' · '+t('v_noaudio')}${c.bar>=nb?' · '+t('v_outside'):''}</small></div><button data-k="vplay" data-id="${c.id}" aria-label="${t('v_play')}">▶</button><button data-k="vdel" data-id="${c.id}" aria-label="${t('v_del')}">🗑</button></div>`).join(''):`<p class="hint">${t('v_none')}</p>`}</div>`;
+  h+=`<div class="card"><h3>${t('v_takes')}</h3>${state.clips.length?state.clips.map(c=>`<div class="take"><div>${t('v_take',c.n)}<small>${t('v_bar',c.bar+1)} · ${c.dur.toFixed(1)} s${takeBuf.has(c.id)?'':' · '+t('v_noaudio')}${c.bar>=nb?' · '+t('v_outside'):''}</small></div><button data-k="vplay" data-id="${c.id}" aria-label="${t('v_play')}">${ic('play')}</button><button data-k="vdel" data-id="${c.id}" aria-label="${t('v_del')}">${ic('trash')}</button></div>`).join(''):`<p class="hint">${t('v_none')}</p>`}</div>`;
   h+=`<div class="card"><h3>${t('v_sync')}</h3>${sl(t('v_lat'),'voice.lat',-100,300,5)}<p class="hint">${t('v_lat_hint')}</p></div>`;
   return h;}
 
@@ -1048,9 +1050,9 @@ holdBtn($('#bpmDn'),-1);holdBtn($('#bpmUp'),1);
 const sheet=$('#sheet');
 function openSheet(h,lock){$('#sheetIn').innerHTML=h;sheet.dataset.lock=lock?'1':'';sheet.classList.remove('hide');}
 function closeSheet(){sheet.dataset.lock='';sheet.classList.add('hide');}
-function langSheet(first){openSheet(`<h2>${first?'Elegí el idioma · Choose your language':t('lang_title')}</h2>
-  <button class="big ${lang==='es'?'on':''}" data-m="lang" data-v="es">Español</button><button class="big ${lang==='en'?'on':''}" data-m="lang" data-v="en">English</button>
-  ${first?'<p>Lo podés cambiar después desde el menú ⋯ · You can change it later from the ⋯ menu</p>':''}`,first);}
+function langSheet(first){openSheet(`<h2>${first?'Choose your language · Elegí el idioma':t('lang_title')}</h2>
+  <button class="big ${L()==='en'?'on':''}" data-m="lang" data-v="en">English</button><button class="big ${L()==='es'?'on':''}" data-m="lang" data-v="es">Español</button>
+  ${first?`<p>You can change it later in ${ic('gear')} Settings · Lo podés cambiar después en ${ic('gear')} Configuración</p>`:''}`,first);}
 function setLang(l){lang=l;try{localStorage.setItem(LANG_KEY,l);}catch(e){}renderStatic();render();}
 sheet.addEventListener('click',e=>{if(e.target===sheet){if(!sheet.dataset.lock)closeSheet();return;}const b=e.target.closest('[data-m]');if(b)menuAction(b.dataset.m,b);});
 /* ---------- configuración (⚙): preferencias del dispositivo, no del proyecto ----------
@@ -1061,18 +1063,18 @@ const settings=(()=>{const d={sr:44100,bits:16};try{const o=JSON.parse(localStor
 const saveSettings=()=>lsSet(SET_KEY,JSON.stringify(settings));
 const qualityLabel=()=>`${settings.sr===48000?'48':L()==='es'?'44,1':'44.1'} kHz · ${settings.bits} bits`;
 function settingsSheet(){const opt=(k,v,l)=>`<button data-m="setQ" data-k="${k}" data-v="${v}" class="${settings[k]===v?'on':''}">${l}</button>`;
-  openSheet(`<h2>⚙ ${t('settings')}</h2>
-  <h4>${t('set_lang')}</h4><div class="row"><button data-m="setLang" data-v="es" class="${L()==='es'?'on':''}">Español</button><button data-m="setLang" data-v="en" class="${L()==='en'?'on':''}">English</button></div>
+  openSheet(`<h2>${ic('gear','lead')}${t('settings')}</h2>
+  <h4>${t('set_lang')}</h4><div class="row"><button data-m="setLang" data-v="en" class="${L()==='en'?'on':''}">English</button><button data-m="setLang" data-v="es" class="${L()==='es'?'on':''}">Español</button></div>
   <h4>${t('set_quality')}</h4><div class="row">${opt('sr',44100,L()==='es'?'44,1 kHz':'44.1 kHz')}${opt('sr',48000,'48 kHz')}</div><div class="row">${opt('bits',16,'16 bits')}${opt('bits',24,'24 bits')}</div>
   <p>${t('set_q_hint')}</p><p class="ver">${t('set_ver',APP_VER)}</p>`);}
 $('#gearBtn').addEventListener('click',settingsSheet);
 $('#menuBtn').addEventListener('click',()=>openSheet(`<h2>${t('project')}: ${esc(curProj()?curProj().name:'')}</h2>
-  <button class="big" data-m="projects">${t('m_projects')}</button>
-  <button class="big" data-m="tpl">${t('m_tpl')}</button>
-  <button class="big" data-m="export">${t('m_export')}</button>
-  <button class="big" data-m="dup">${t('m_dup','ABCD'[state.cur],'ABCD'[(state.cur+1)%4])}</button>
-  <button class="big" data-m="save">${t('m_save')}</button>
-  <button class="big" data-m="open">${t('m_open')}</button>
+  <button class="big" data-m="projects">${ic('folder','lead')}${t('m_projects')}</button>
+  <button class="big" data-m="tpl">${ic('layout','lead')}${t('m_tpl')}</button>
+  <button class="big" data-m="export">${ic('download','lead')}${t('m_export')}</button>
+  <button class="big" data-m="dup">${ic('copy','lead')}${t('m_dup','ABCD'[state.cur],'ABCD'[(state.cur+1)%4])}</button>
+  <button class="big" data-m="save">${ic('save','lead')}${t('m_save')}</button>
+  <button class="big" data-m="open">${ic('upload','lead')}${t('m_open')}</button>
   <button class="big danger" data-m="clearPat">${t('m_clear','ABCD'[state.cur])}</button>
   <button class="big danger" data-m="reset">${t('m_reset')}</button>`));
 let exLoops=4;
@@ -1115,7 +1117,7 @@ async function menuAction(m,b){
 const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
 const slug=x=>String(x).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40);
 function projSheet(){const rows=projects.slice().sort((a,b)=>b.upd-a.upd).map(p=>`<div class="take"><div data-m="pjOpen" data-id="${p.id}">${esc(p.name)}${p.id===curId?` <b>· ${t('pj_cur')}</b>`:''}<small>${new Date(p.upd).toLocaleString(L(),{dateStyle:'short',timeStyle:'short'})}</small></div>
-  <button data-m="pjRen" data-id="${p.id}" aria-label="${t('pj_rename')}">✎</button><button data-m="pjDup" data-id="${p.id}" aria-label="${t('pj_dup')}">⧉</button><button data-m="pjDel" data-id="${p.id}" aria-label="${t('pj_del')}">🗑</button></div>`).join('');
+  <button data-m="pjRen" data-id="${p.id}" aria-label="${t('pj_rename')}">${ic('pencil')}</button><button data-m="pjDup" data-id="${p.id}" aria-label="${t('pj_dup')}">${ic('copy')}</button><button data-m="pjDel" data-id="${p.id}" aria-label="${t('pj_del')}">${ic('trash')}</button></div>`).join('');
   openSheet(`<h2>${t('pj_title')}</h2><div class="pjlist">${rows}</div><button class="go" data-m="pjNew">${t('pj_new')}</button>`);}
 // cambia al proyecto `id`: corta lo que suena, guarda el actual y carga el otro con sus tomas
 function switchProject(id){if(rec){rec=null;micClose();}if(playing)stop();flushSave();
@@ -1179,7 +1181,7 @@ function zipStore(name,data){const nm=new TextEncoder().encode(name),crc=crc32(d
 let toastT=0;function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>e.classList.remove('show'),2000);}
 document.addEventListener('visibilitychange',()=>{if(document.hidden){if(rec)finishRec();else if(playing)stop();flushSave();}});
 window.addEventListener('pagehide',flushSave);
-renderStatic();render();drawScope();loadTakes();if(!lang)langSheet(true);
+paintIcons();renderStatic();render();drawScope();loadTakes();if(!lang)langSheet(true);
 // la pantalla de carga se va sola después de que se vio el título (la app ya está armada debajo)
 setTimeout(()=>{const sp=$('#splash');sp.classList.add('out');setTimeout(()=>sp.remove(),500);},1300);
 </script>

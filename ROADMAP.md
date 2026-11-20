@@ -31,6 +31,8 @@ Leyenda: ✅ hecho · 🚧 en curso · ⬜ pendiente · esfuerzo **B** bajo / **
 | ⬜ | Automatización | A | Grabar el movimiento de una perilla a lo largo del patrón o la canción. |
 
 | ✅ | Pantalla de carga y título TAKT | B | Título con contorno y extrusión (luz desde la derecha). La línea del costado engorda y brilla con el sonido. |
+| ✅ | Íconos propios en SVG (sin emojis) | B | Set de íconos de línea en `ICONS`. |
+| ✅ | Inglés por defecto | B | El español se elige en el selector inicial o en Configuración. |
 | ✅ | Configuración (⚙) | B | Idioma y calidad de exportación (44,1/48 kHz, 16/24 bits). Acá irán la cuenta y la carpeta de guardado. |
 | ⬜ | Inicio de sesión con Google y guardado en la nube | A | Ver propuesta: Firebase (Auth + Firestore + Storage), sin perder el modo sin conexión. |
 
