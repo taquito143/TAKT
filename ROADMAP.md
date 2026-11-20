@@ -65,4 +65,12 @@ Leyenda: ✅ hecho · 🚧 en curso · ⬜ pendiente · esfuerzo **B** bajo / **
 
 ## Fase 6 — APK
 
-Ver "Próximos pasos" en `CLAUDE.md`: Capacitor, guardar archivos nativo, permisos de micrófono, ícono, latencia en equipos reales.
+| | Función | Esf. | Notas |
+|---|---|---|---|
+| ✅ | Proyecto Android (Capacitor) | M | Paquete `com.taquiro.takt`. Permisos de micrófono, vertical, pantalla encendida, botón atrás, compartir archivos (WAV directo). |
+| ✅ | Ícono y pantalla de inicio | B | `scripts/make-icons.py`. |
+| ✅ | Primera prueba en un equipo real | M | Redmi Pad SE (Android 15): ~43 ms de latencia; el export pesado va a ~1,4× tiempo real; sin cortes de audio una vez andando (algunos en el primer arranque en frío). |
+| ✅ | Versión web en GitHub Pages | B | https://taquito143.github.io/TAKT/ |
+| ⬜ | Inicio de sesión con Google nativo | M | Falta el `google-services.json` con la SHA-1 cargada; después `@capacitor-firebase/authentication`. |
+| ⬜ | Opción "audio estable" | B | `latencyHint: 'playback'` para equipos que cortan, a cambio de más latencia. |
+| ⬜ | Firma de release y Google Play | M | Llave de release, SHA-1 de release en Firebase, AAB, ficha de la tienda, política de privacidad. |
