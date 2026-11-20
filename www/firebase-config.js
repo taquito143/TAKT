@@ -1,15 +1,12 @@
-// Configuración de Firebase para TAKT.
-// Mientras esté en null, la app funciona igual pero sin cuenta ni nube (la sección "Cuenta" no aparece).
-// Para activarla: Firebase console → Configuración del proyecto → Tus apps → App web → copiar el objeto firebaseConfig acá.
+// Configuración de Firebase para TAKT (proyecto takt-28243, app web).
+// Si se pone en null, la app funciona igual pero sin cuenta ni nube (la sección "Cuenta" no aparece).
 // Estos datos no son secretos (identifican el proyecto); la seguridad la dan las reglas de firestore.rules.
-window.TAKT_FIREBASE = null;
-/* Ejemplo:
+// No se usa Analytics, por eso no va measurementId.
 window.TAKT_FIREBASE = {
-  apiKey: "…",
-  authDomain: "tu-proyecto.firebaseapp.com",
-  projectId: "tu-proyecto",
-  storageBucket: "tu-proyecto.firebasestorage.app",
-  messagingSenderId: "…",
-  appId: "…"
+  apiKey: "AIzaSyDDwOg7a1oPBcHQxmicHz7hxg4d4f9d3cY",
+  authDomain: "takt-28243.firebaseapp.com",
+  projectId: "takt-28243",
+  storageBucket: "takt-28243.firebasestorage.app",
+  messagingSenderId: "322715808959",
+  appId: "1:322715808959:web:508fcfa24745bf1130420a"
 };
-*/

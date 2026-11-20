@@ -34,7 +34,8 @@ Leyenda: ✅ hecho · 🚧 en curso · ⬜ pendiente · esfuerzo **B** bajo / **
 | ✅ | Íconos propios en SVG (sin emojis) | B | Set de íconos de línea en `ICONS`. |
 | ✅ | Inglés por defecto | B | El español se elige en el selector inicial o en Configuración. |
 | ✅ | Configuración (⚙) | B | Idioma y calidad de exportación (44,1/48 kHz, 16/24 bits). Acá irán la cuenta y la carpeta de guardado. |
-| 🚧 | Inicio de sesión con Google y proyectos en la nube | A | Código listo y probado con un servidor simulado (Firebase Auth + Firestore, sin perder el modo sin conexión). Falta: config web en `www/firebase-config.js`, activar Google en Authentication, crear Firestore y pegar `firestore.rules`. En Android: plugin nativo, SHA-1 y `google-services.json`. |
+| ✅ | Inicio de sesión con Google y proyectos en la nube (web) | A | Firebase `takt-28243`: Auth con Google + Firestore con `firestore.rules`. Probado con la cuenta real: sube, baja y sincroniza ediciones. |
+| ⬜ | Inicio de sesión con Google en la APK | M | Plugin `@capacitor-firebase/authentication`, SHA-1 de la llave de firma, `google-services.json` de `com.taquiro.takt`. |
 | ⬜ | Audio de las tomas en la nube | M | Firebase Storage (requiere plan Blaze). |
 
 ## Fase 3 — Instrumentos
