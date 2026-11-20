@@ -1,0 +1,16 @@
+rules_version = '2';
+// Cada usuario solo puede leer y escribir sus propios proyectos: users/{uid}/projects/{id}.
+// Un proyecto es {name, upd, del, data}; data es el proyecto en JSON (tope ~900 KB, Firestore admite 1 MiB por documento).
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid}/projects/{pid} {
+      allow read, delete: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['name', 'upd', 'del', 'data'])
+        && request.resource.data.name is string && request.resource.data.name.size() <= 40
+        && request.resource.data.upd is number
+        && request.resource.data.del is bool
+        && request.resource.data.data is string && request.resource.data.data.size() < 900000;
+    }
+  }
+}

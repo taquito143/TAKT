@@ -8,7 +8,8 @@
     "android:add": "cap add android",
     "android:sync": "cap sync android",
     "android:open": "cap open android",
-    "android:run": "cap run android"
+    "android:run": "cap run android",
+    "vendor:firebase": "esbuild scripts/firebase-entry.js --bundle --format=esm --minify --target=es2020 --legal-comments=eof --outfile=www/vendor/firebase.js"
   },
   "dependencies": {
     "@capacitor/android": "^8.6.2",
@@ -18,6 +19,8 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^8.6.2",
+    "esbuild": "^0.28.2",
+    "firebase": "^13.4.0",
     "serve": "^14.2.8"
   }
 }

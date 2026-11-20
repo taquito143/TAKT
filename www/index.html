@@ -173,11 +173,12 @@ input.txt{width:100%;height:46px;border-radius:10px;background:var(--bg);color:v
 <div id="toast"></div>
 <div id="splash" aria-hidden="true"><div class="brand">TAKT</div></div>
 <input type="file" id="fileIn" accept=".json,application/json" hidden>
+<script src="firebase-config.js"></script>
 <script>
 "use strict";
 const $=s=>document.querySelector(s);
 /* ---------- íconos: SVG de línea propios (sin emojis: se ven igual en todos los equipos y siguen el color del texto) ---------- */
-const ICONS={play:'<path d="M7 4.5v15l12.5-7.5z" fill="currentColor" stroke="none"/>',stop:'<rect x="6" y="6" width="12" height="12" rx="1.5" fill="currentColor" stroke="none"/>',rec:'<circle cx="12" cy="12" r="6" fill="currentColor" stroke="none"/>',undo:'<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',redo:'<path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>',gear:'<path d="M18.88 9.87 L21.86 10.31 L21.86 13.69 L18.88 14.13 L18.37 15.36 L20.17 17.77 L17.77 20.17 L15.36 18.37 L14.13 18.88 L13.69 21.86 L10.31 21.86 L9.87 18.88 L8.64 18.37 L6.23 20.17 L3.83 17.77 L5.63 15.36 L5.12 14.13 L2.14 13.69 L2.14 10.31 L5.12 9.87 L5.63 8.64 L3.83 6.23 L6.23 3.83 L8.64 5.63 L9.87 5.12 L10.31 2.14 L13.69 2.14 L14.13 5.12 L15.36 5.63 L17.77 3.83 L20.17 6.23 L18.37 8.64Z"/><circle cx="12" cy="12" r="3"/>',dots:'<circle cx="5" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.7" fill="currentColor" stroke="none"/>',drums:'<ellipse cx="12" cy="10" rx="8" ry="3"/><path d="M4 10v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5"/><path d="m7 3 4 5m6-5-4 5"/>',bass:'<path d="M2 12c2.5-7 5.5-7 8 0s5.5 7 8 0"/><path d="M18 12h4"/>',synth:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 13v7m6-7v7"/><rect x="7.4" y="4" width="3.2" height="9" rx=".6" fill="currentColor" stroke="none"/><rect x="13.4" y="4" width="3.2" height="9" rx=".6" fill="currentColor" stroke="none"/>',song:'<rect x="3" y="5" width="7" height="5" rx="1.2"/><rect x="12" y="5" width="9" height="5" rx="1.2"/><rect x="3" y="14" width="11" height="5" rx="1.2"/><rect x="16" y="14" width="5" height="5" rx="1.2"/>',loop:'<path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/>',mix:'<path d="M6 3v18M12 3v18M18 3v18"/><rect x="3.5" y="12" width="5" height="3.5" rx="1" fill="currentColor" stroke="none"/><rect x="9.5" y="6" width="5" height="3.5" rx="1" fill="currentColor" stroke="none"/><rect x="15.5" y="14.5" width="5" height="3.5" rx="1" fill="currentColor" stroke="none"/>',download:'<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>',upload:'<path d="M12 21V9"/><path d="m7 14 5-5 5 5"/><path d="M5 3h14"/>',copy:'<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/>',save:'<path d="M5 3h11l5 5v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3"/><path d="M7 21v-7h10v7"/>',folder:'<path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',layout:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',dice:'<rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.5" fill="currentColor" stroke="none"/>',trash:'<path d="M4 7h16"/><path d="M10 11v6m4-6v6"/><path d="m6 7 1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13"/><path d="M9 7V4h6v3"/>',pencil:'<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="m13.5 6.5 4 4"/>',chevL:'<path d="m15 18-6-6 6-6"/>',chevR:'<path d="m9 18 6-6-6-6"/>'};
+const ICONS={play:'<path d="M7 4.5v15l12.5-7.5z" fill="currentColor" stroke="none"/>',stop:'<rect x="6" y="6" width="12" height="12" rx="1.5" fill="currentColor" stroke="none"/>',rec:'<circle cx="12" cy="12" r="6" fill="currentColor" stroke="none"/>',undo:'<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',redo:'<path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>',gear:'<path d="M18.88 9.87 L21.86 10.31 L21.86 13.69 L18.88 14.13 L18.37 15.36 L20.17 17.77 L17.77 20.17 L15.36 18.37 L14.13 18.88 L13.69 21.86 L10.31 21.86 L9.87 18.88 L8.64 18.37 L6.23 20.17 L3.83 17.77 L5.63 15.36 L5.12 14.13 L2.14 13.69 L2.14 10.31 L5.12 9.87 L5.63 8.64 L3.83 6.23 L6.23 3.83 L8.64 5.63 L9.87 5.12 L10.31 2.14 L13.69 2.14 L14.13 5.12 L15.36 5.63 L17.77 3.83 L20.17 6.23 L18.37 8.64Z"/><circle cx="12" cy="12" r="3"/>',dots:'<circle cx="5" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.7" fill="currentColor" stroke="none"/>',drums:'<ellipse cx="12" cy="10" rx="8" ry="3"/><path d="M4 10v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5"/><path d="m7 3 4 5m6-5-4 5"/>',bass:'<path d="M2 12c2.5-7 5.5-7 8 0s5.5 7 8 0"/><path d="M18 12h4"/>',synth:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 13v7m6-7v7"/><rect x="7.4" y="4" width="3.2" height="9" rx=".6" fill="currentColor" stroke="none"/><rect x="13.4" y="4" width="3.2" height="9" rx=".6" fill="currentColor" stroke="none"/>',song:'<rect x="3" y="5" width="7" height="5" rx="1.2"/><rect x="12" y="5" width="9" height="5" rx="1.2"/><rect x="3" y="14" width="11" height="5" rx="1.2"/><rect x="16" y="14" width="5" height="5" rx="1.2"/>',loop:'<path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/>',mix:'<path d="M6 3v18M12 3v18M18 3v18"/><rect x="3.5" y="12" width="5" height="3.5" rx="1" fill="currentColor" stroke="none"/><rect x="9.5" y="6" width="5" height="3.5" rx="1" fill="currentColor" stroke="none"/><rect x="15.5" y="14.5" width="5" height="3.5" rx="1" fill="currentColor" stroke="none"/>',download:'<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>',upload:'<path d="M12 21V9"/><path d="m7 14 5-5 5 5"/><path d="M5 3h14"/>',copy:'<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/>',save:'<path d="M5 3h11l5 5v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3"/><path d="M7 21v-7h10v7"/>',folder:'<path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',layout:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',dice:'<rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.5" fill="currentColor" stroke="none"/>',trash:'<path d="M4 7h16"/><path d="M10 11v6m4-6v6"/><path d="m6 7 1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13"/><path d="M9 7V4h6v3"/>',pencil:'<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="m13.5 6.5 4 4"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',chevL:'<path d="m15 18-6-6 6-6"/>',chevR:'<path d="m9 18 6-6-6-6"/>'};
 const ic=(n,lead)=>`<svg class="ic${lead?' lead':''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]}</svg>`;
 function paintIcons(){document.querySelectorAll('[data-ic]').forEach(e=>e.innerHTML=ic(e.dataset.ic));}
 /* ---------- TAKT se llamaba "Estudio·Bolsillo": las claves viejas 'estudio-bolsillo-*' pasan a 'takt-*' una sola vez ---------- */
@@ -198,7 +199,7 @@ es:{song:"Canción",song_title:"Modo canción: suena el arreglo",menu:"Menú",pl
   ch_drums:"Ritmo",ch_bass:"Bajo",ch_synth:"Synth",ch_voice:"Voz",muted:"Silenciado",mute:"Silenciar",volume:"Volumen",echo:"Eco",reverb:"Reverb",
   key_groove:"Tonalidad y groove",key:"Tonalidad",swing:"Swing",fx_out:"Efectos y salida",echo_time:"Tiempo eco",feedback:"Repeticiones",master:"Volumen general",
   sc_Menor:"Menor",sc_Mayor:"Mayor","sc_Pentatónica":"Pentatónica","sc_Dórica":"Dórica",sc_Frigia:"Frigia",sc_Blues:"Blues",
-  project:"Proyecto",m_export:"Exportar audio (WAV)",m_dup:"Duplicar patrón {0} → {1}",m_save:"Guardar proyecto (.json)",m_open:"Abrir proyecto",settings:"Configuración",set_lang:"Idioma",set_quality:"Calidad de exportación",set_q_hint:"48 kHz y 24 bits dan archivos más grandes; para compartir alcanza con 44,1 kHz y 16 bits.",set_ver:"TAKT · versión {0}",m_clear:"Borrar patrón {0}",m_reset:"Empezar de cero",
+  project:"Proyecto",m_export:"Exportar audio (WAV)",m_dup:"Duplicar patrón {0} → {1}",m_save:"Guardar proyecto (.json)",m_open:"Abrir proyecto",settings:"Configuración",acc:"Cuenta",acc_in:"Entrar con Google",acc_out:"Cerrar sesión",acc_as:"Conectado como {0}",acc_sync:"Sincronizar ahora",acc_hint:"Tus proyectos se guardan en tu cuenta y aparecen en tus otros equipos. El audio de las tomas de voz, por ahora, queda en el equipo donde se grabó.",sy_sync:"Sincronizando…",sy_ok:"Sincronizado a las {0}",sy_err:"No se pudo sincronizar; se vuelve a intentar solo.",sy_off:"Sin conexión: se sincroniza al volver.",t_acc_err:"No se pudo iniciar sesión",t_signed_in:"Sesión iniciada",t_signed_out:"Sesión cerrada",set_lang:"Idioma",set_quality:"Calidad de exportación",set_q_hint:"48 kHz y 24 bits dan archivos más grandes; para compartir alcanza con 44,1 kHz y 16 bits.",set_ver:"TAKT · versión {0}",m_clear:"Borrar patrón {0}",m_reset:"Empezar de cero",
   ex_title:"Exportar audio",ex_song:"Canción de {0} compases",ex_pat:"Patrón",ex_rep:"repetido:",ex_info:"Duración ≈ {0} s · WAV {1}. Se descarga un .zip con el archivo adentro.",ex_go:"Exportar",rendering:"Renderizando…",wait:"Un momento.",
   reset_q:"¿Empezar de cero?",reset_info:"Se borran los 4 patrones, el arreglo, las tomas de voz y los ajustes de este proyecto.",reset_yes:"Sí, borrar todo",cancel:"Cancelar",
   t_export_fail:"No se pudo exportar",t_copied:"Copiado en {0}",t_opened:"Proyecto abierto",t_badfile:"Ese archivo no es un proyecto válido",t_done:"Listo",t_cancelled:"Cancelado",t_wait:"Esperá un momento y probá de nuevo",t_nodl:"Este visor no permite descargas",
@@ -221,7 +222,7 @@ en:{song:"Song",song_title:"Song mode: play the arrangement",menu:"Menu",play:"P
   ch_drums:"Drums",ch_bass:"Bass",ch_synth:"Synth",ch_voice:"Voice",muted:"Muted",mute:"Mute",volume:"Volume",echo:"Echo",reverb:"Reverb",
   key_groove:"Key and groove",key:"Key",swing:"Swing",fx_out:"Effects and output",echo_time:"Echo time",feedback:"Feedback",master:"Master volume",
   sc_Menor:"Minor",sc_Mayor:"Major","sc_Pentatónica":"Pentatonic","sc_Dórica":"Dorian",sc_Frigia:"Phrygian",sc_Blues:"Blues",
-  project:"Project",m_export:"Export audio (WAV)",m_dup:"Duplicate pattern {0} → {1}",m_save:"Save project (.json)",m_open:"Open project",settings:"Settings",set_lang:"Language",set_quality:"Export quality",set_q_hint:"48 kHz and 24 bits make bigger files; 44.1 kHz and 16 bits is enough for sharing.",set_ver:"TAKT · version {0}",m_clear:"Clear pattern {0}",m_reset:"Start over",
+  project:"Project",m_export:"Export audio (WAV)",m_dup:"Duplicate pattern {0} → {1}",m_save:"Save project (.json)",m_open:"Open project",settings:"Settings",acc:"Account",acc_in:"Sign in with Google",acc_out:"Sign out",acc_as:"Signed in as {0}",acc_sync:"Sync now",acc_hint:"Your projects are saved to your account and show up on your other devices. Voice take audio stays on the device where it was recorded, for now.",sy_sync:"Syncing…",sy_ok:"Synced at {0}",sy_err:"Could not sync; it will retry on its own.",sy_off:"Offline: it will sync when you are back online.",t_acc_err:"Could not sign in",t_signed_in:"Signed in",t_signed_out:"Signed out",set_lang:"Language",set_quality:"Export quality",set_q_hint:"48 kHz and 24 bits make bigger files; 44.1 kHz and 16 bits is enough for sharing.",set_ver:"TAKT · version {0}",m_clear:"Clear pattern {0}",m_reset:"Start over",
   ex_title:"Export audio",ex_song:"Song of {0} bars",ex_pat:"Pattern",ex_rep:"repeated:",ex_info:"Length ≈ {0} s · WAV {1}. You get a .zip with the file inside.",ex_go:"Export",rendering:"Rendering…",wait:"One moment.",
   reset_q:"Start over?",reset_info:"This deletes the 4 patterns, the arrangement, the voice takes and the settings of this project.",reset_yes:"Yes, delete everything",cancel:"Cancel",
   t_export_fail:"Export failed",t_copied:"Copied to {0}",t_opened:"Project opened",t_badfile:"That file is not a valid project",t_done:"Done",t_cancelled:"Cancelled",t_wait:"Wait a moment and try again",t_nodl:"This viewer does not allow downloads",
@@ -310,7 +311,7 @@ function initProjects(){
   return readProject(curId)||defaultState();}
 let saveT=0;
 function save(){clearTimeout(saveT);saveT=setTimeout(flushSave,300);}
-function flushSave(){clearTimeout(saveT);if(!curId)return;lsSet(pjKey(curId),JSON.stringify(state));const p=curProj();if(p){p.upd=Date.now();writeIdx();}}
+function flushSave(){clearTimeout(saveT);if(!curId)return;lsSet(pjKey(curId),JSON.stringify(state));const p=curProj();if(p){p.upd=Date.now();writeIdx();}markDirty(curId);}
 let state=initProjects();
 let tab='drums',selDrum='kick',bassPage=0,synPage=0,drumPage=0,dmode='hit',selStep=0,liveRec=false;const fxOpen=new Set();
 
@@ -1048,7 +1049,7 @@ holdBtn($('#bpmDn'),-1);holdBtn($('#bpmUp'),1);
 
 /* ---------- menú, archivos ---------- */
 const sheet=$('#sheet');
-function openSheet(h,lock){$('#sheetIn').innerHTML=h;sheet.dataset.lock=lock?'1':'';sheet.classList.remove('hide');}
+function openSheet(h,lock){$('#sheetIn').innerHTML=h;sheet.dataset.lock=lock?'1':'';sheet.dataset.kind=h.includes('data-m="setQ"')?'settings':'';sheet.classList.remove('hide');}
 function closeSheet(){sheet.dataset.lock='';sheet.classList.add('hide');}
 function langSheet(first){openSheet(`<h2>${first?'Choose your language · Elegí el idioma':t('lang_title')}</h2>
   <button class="big ${L()==='en'?'on':''}" data-m="lang" data-v="en">English</button><button class="big ${L()==='es'?'on':''}" data-m="lang" data-v="es">Español</button>
@@ -1063,7 +1064,7 @@ const settings=(()=>{const d={sr:44100,bits:16};try{const o=JSON.parse(localStor
 const saveSettings=()=>lsSet(SET_KEY,JSON.stringify(settings));
 const qualityLabel=()=>`${settings.sr===48000?'48':L()==='es'?'44,1':'44.1'} kHz · ${settings.bits} bits`;
 function settingsSheet(){const opt=(k,v,l)=>`<button data-m="setQ" data-k="${k}" data-v="${v}" class="${settings[k]===v?'on':''}">${l}</button>`;
-  openSheet(`<h2>${ic('gear','lead')}${t('settings')}</h2>
+  openSheet(`<h2>${ic('gear','lead')}${t('settings')}</h2>${accountHtml()}
   <h4>${t('set_lang')}</h4><div class="row"><button data-m="setLang" data-v="en" class="${L()==='en'?'on':''}">English</button><button data-m="setLang" data-v="es" class="${L()==='es'?'on':''}">Español</button></div>
   <h4>${t('set_quality')}</h4><div class="row">${opt('sr',44100,L()==='es'?'44,1 kHz':'44.1 kHz')}${opt('sr',48000,'48 kHz')}</div><div class="row">${opt('bits',16,'16 bits')}${opt('bits',24,'24 bits')}</div>
   <p>${t('set_q_hint')}</p><p class="ver">${t('set_ver',APP_VER)}</p>`);}
@@ -1098,6 +1099,9 @@ async function menuAction(m,b){
   else if(m==='resetYes'){checkpoint();if(rec){rec=null;micClose();}if(playing)stop();state.clips.forEach(c=>IDB.del(c.id));takeBuf.clear();state=defaultState();state.patterns=[emptyPattern(),emptyPattern(),emptyPattern(),emptyPattern()];closeSheet();applyMix(G);save();render();}
   else if(m==='lang'){closeSheet();setLang(b.dataset.v);}
   else if(m==='setLang'){setLang(b.dataset.v);settingsSheet();}
+  else if(m==='accIn')signIn();
+  else if(m==='accOut')signOutCloud();
+  else if(m==='accSync')syncAll();
   else if(m==='setQ'){settings[b.dataset.k]=+b.dataset.v;saveSettings();settingsSheet();}
   else if(m==='vdelYes'){const id=b.dataset.id;state.clips=state.clips.filter(c=>c.id!==id);takeBuf.delete(id);IDB.del(id);closeSheet();save();render();}
   else if(m==='close')closeSheet();
@@ -1109,7 +1113,7 @@ async function menuAction(m,b){
   else if(m==='pjRen'){const p=projects.find(x=>x.id===b.dataset.id);if(!p)return;
     openSheet(`<h2>${t('pj_rename')}</h2><input class="txt" id="pjName" maxlength="40" value="${esc(p.name)}"><button class="go" data-m="pjRenOk" data-id="${p.id}">${t('pj_save')}</button><button class="big" data-m="projects">${t('cancel')}</button>`);
     const inp=$('#pjName');inp.focus();inp.select();inp.addEventListener('keydown',e=>{if(e.key==='Enter')menuAction('pjRenOk',{dataset:{id:p.id}});});}
-  else if(m==='pjRenOk'){const p=projects.find(x=>x.id===b.dataset.id),v=($('#pjName')||{}).value;if(p&&v&&v.trim()){p.name=v.trim().slice(0,40);writeIdx();}projSheet();}
+  else if(m==='pjRenOk'){const p=projects.find(x=>x.id===b.dataset.id),v=($('#pjName')||{}).value;if(p&&v&&v.trim()){p.name=v.trim().slice(0,40);p.upd=Date.now();writeIdx();markDirty(p.id);}projSheet();}
   else if(m==='pjDup'){await dupProject(b.dataset.id);projSheet();toast(t('t_pj_dup'));}
   else if(m==='pjDel'){const p=projects.find(x=>x.id===b.dataset.id);if(p)openSheet(`<h2>${t('pj_del_q',esc(p.name))}</h2><p>${t('pj_del_info')}</p><button class="big danger" data-m="pjDelYes" data-id="${p.id}">${t('v_del_yes')}</button><button class="big" data-m="projects">${t('cancel')}</button>`);}
   else if(m==='pjDelYes'){await delProject(b.dataset.id);projSheet();toast(t('t_pj_del'));}
@@ -1120,15 +1124,79 @@ function projSheet(){const rows=projects.slice().sort((a,b)=>b.upd-a.upd).map(p=
   <button data-m="pjRen" data-id="${p.id}" aria-label="${t('pj_rename')}">${ic('pencil')}</button><button data-m="pjDup" data-id="${p.id}" aria-label="${t('pj_dup')}">${ic('copy')}</button><button data-m="pjDel" data-id="${p.id}" aria-label="${t('pj_del')}">${ic('trash')}</button></div>`).join('');
   openSheet(`<h2>${t('pj_title')}</h2><div class="pjlist">${rows}</div><button class="go" data-m="pjNew">${t('pj_new')}</button>`);}
 // cambia al proyecto `id`: corta lo que suena, guarda el actual y carga el otro con sus tomas
+/* ---------- cuenta y nube (Firebase) ----------
+   El equipo sigue siendo la fuente de verdad: todo se guarda en localStorage como siempre. Con sesión iniciada,
+   cada proyecto se copia a Firestore en users/{uid}/projects/{id} = {name, upd, del, data(JSON)} y se combina
+   por fecha de cambio (gana el más nuevo). Borrar deja una marca (del:true) para que otro equipo no lo vuelva a subir.
+   El audio de las tomas no se sube todavía (Storage pide el plan Blaze). El SDK se carga recién cuando hace falta. */
+const ACC_KEY='takt-acc',OWN_KEY='takt-owner',TOMB_KEY='takt-tomb';
+const cloudOn=()=>!!(window.TAKT_FIREBASE&&window.TAKT_FIREBASE.apiKey);
+let fbApi=null,cloudUser=null,syncing=false,syncState='',syncAt=0,pushT=0,retryT=0;const dirty=new Set();
+const tombs=()=>{try{return JSON.parse(lsGet(TOMB_KEY)||'[]');}catch(e){return [];}};
+function addTomb(id){const a=tombs().filter(x=>x.id!==id);a.push({id,upd:Date.now()});lsSet(TOMB_KEY,JSON.stringify(a.slice(-200)));}
+function markDirty(id){if(!id)return;dirty.add(id);if(cloudUser){clearTimeout(pushT);pushT=setTimeout(pushDirty,4000);}}
+// backend: Firestore. Las pruebas lo reemplazan por uno en memoria.
+const Cloud={
+  async load(){if(fbApi)return fbApi;const m=await import('./vendor/firebase.js');const app=m.initializeApp(window.TAKT_FIREBASE);
+    fbApi={m,auth:m.getAuth(app),db:m.getFirestore(app)};m.onAuthStateChanged(fbApi.auth,u=>onCloudUser(u&&{uid:u.uid,name:u.displayName||u.email||'',email:u.email||''}));return fbApi;},
+  async signIn(){const {m,auth}=await this.load(),C=window.Capacitor;
+    // en la APK, Google no deja iniciar sesión dentro de una WebView: se usa el inicio nativo (@capacitor-firebase/authentication)
+    if(C&&C.isNativePlatform&&C.isNativePlatform()&&C.Plugins&&C.Plugins.FirebaseAuthentication){const r=await C.Plugins.FirebaseAuthentication.signInWithGoogle();
+      await m.signInWithCredential(auth,m.GoogleAuthProvider.credential(r.credential&&r.credential.idToken));return;}
+    await m.signInWithPopup(auth,new m.GoogleAuthProvider());},
+  async signOut(){const {m,auth}=await this.load();const C=window.Capacitor;if(C&&C.Plugins&&C.Plugins.FirebaseAuthentication){try{await C.Plugins.FirebaseAuthentication.signOut();}catch(e){}}await m.signOut(auth);},
+  async list(uid){const {m,db}=await this.load();const q=await m.getDocs(m.collection(db,'users',uid,'projects'));return q.docs.map(d=>({id:d.id,...d.data()}));},
+  async put(uid,d){const {m,db}=await this.load();await m.setDoc(m.doc(db,'users',uid,'projects',d.id),{name:d.name||'',upd:d.upd,del:!!d.del,data:d.del?'':(d.data||'')});}};
+// llega (o se va) la sesión
+function onCloudUser(u){const prev=cloudUser;cloudUser=u;lsSet(ACC_KEY,u?'1':'');
+  if(u){const own=lsGet(OWN_KEY);
+    // los proyectos de este equipo son de otra cuenta: se guardan en su nube y se reemplazan por los de esta
+    if(own&&own!==u.uid)wipeLocal();lsSet(OWN_KEY,u.uid);syncAll();if(!prev)toast(t('t_signed_in'));}
+  else syncState='';refreshAccount();}
+function wipeLocal(){if(playing)stop();for(const p of projects){try{localStorage.removeItem(pjKey(p.id));}catch(e){}}projects=[];writeIdx();lsSet(TOMB_KEY,'[]');dirty.clear();curId='';}
+function setSync(s){syncState=s;if(s==='ok')syncAt=Date.now();refreshAccount();}
+async function pushDirty(){if(!cloudUser||syncing||!dirty.size)return;const uid=cloudUser.uid;setSync('sync');
+  try{for(const id of [...dirty]){const p=projects.find(x=>x.id===id);dirty.delete(id);if(p)await Cloud.put(uid,{id,name:p.name,upd:p.upd,data:lsGet(pjKey(id))});}
+    for(const tb of tombs())await Cloud.put(uid,{id:tb.id,upd:tb.upd,del:true});lsSet(TOMB_KEY,'[]');setSync('ok');}
+  catch(e){console.warn(e);setSync(navigator.onLine===false?'off':'err');clearTimeout(retryT);retryT=setTimeout(syncAll,30000);}}
+// trae lo de la nube, sube lo local y combina por fecha
+async function syncAll(){if(!cloudUser||syncing)return;syncing=true;setSync('sync');const uid=cloudUser.uid;
+  try{flushSave();const R=new Map((await Cloud.list(uid)).map(d=>[d.id,d]));
+    for(const tb of tombs()){const r=R.get(tb.id);if(!r||r.upd<=tb.upd){await Cloud.put(uid,{id:tb.id,upd:tb.upd,del:true});R.delete(tb.id);}}lsSet(TOMB_KEY,'[]');
+    for(const p of projects.slice()){const r=R.get(p.id);R.delete(p.id);
+      if(!r||r.upd<p.upd){await Cloud.put(uid,{id:p.id,name:p.name,upd:p.upd,data:lsGet(pjKey(p.id))});}
+      else if(r.upd>p.upd){if(r.del)await delProject(p.id,true);else pullProject(r);}}
+    for(const r of R.values())if(!r.del)pullProject(r);
+    dirty.clear();
+    if(!projects.length){const s2=defaultState();s2.patterns=[emptyPattern(),emptyPattern(),emptyPattern(),emptyPattern()];addProject(s2,t('pj_def',1));}
+    else if(!curProj())switchProject(projects.slice().sort((a,b)=>b.upd-a.upd)[0].id);
+    setSync('ok');}
+  catch(e){console.warn(e);setSync(navigator.onLine===false?'off':'err');clearTimeout(retryT);retryT=setTimeout(syncAll,30000);}
+  finally{syncing=false;}
+  if(dirty.size)pushDirty();}
+// guarda en el equipo un proyecto que vino de la nube; si es el abierto, lo recarga
+function pullProject(r){const s2=parseProject(r.data);if(!s2)return;lsSet(pjKey(r.id),JSON.stringify(s2));
+  const p=projects.find(x=>x.id===r.id);if(p){p.name=r.name;p.upd=r.upd;}else projects.push({id:r.id,name:r.name,upd:r.upd});writeIdx();
+  if(r.id===curId){if(playing)stop();state=s2;UNDO.length=0;REDO.length=0;updUndo();applyMix(G);render();loadTakes();}}
+async function signIn(){try{await Cloud.signIn();}catch(e){console.warn(e);if(!(e&&/popup-closed|cancel/i.test(e.code||e.message||'')))toast(t('t_acc_err'));}}
+async function signOutCloud(){await pushDirty();try{await Cloud.signOut();}catch(e){}cloudUser=null;lsSet(ACC_KEY,'');syncState='';refreshAccount();toast(t('t_signed_out'));}
+function refreshAccount(){if(sheet.dataset.kind==='settings'&&!sheet.classList.contains('hide'))settingsSheet();}
+function accountHtml(){if(!cloudOn())return '';
+  if(!cloudUser)return `<h4>${t('acc')}</h4><button class="big" data-m="accIn">${ic('user','lead')}${t('acc_in')}</button><p>${t('acc_hint')}</p>`;
+  const st=syncState==='sync'?t('sy_sync'):syncState==='ok'?t('sy_ok',new Date(syncAt).toLocaleTimeString(L(),{hour:'2-digit',minute:'2-digit'})):syncState==='err'?t('sy_err'):syncState==='off'?t('sy_off'):'';
+  return `<h4>${t('acc')}</h4><p style="margin:4px 0">${t('acc_as',esc(cloudUser.name))}${cloudUser.email&&cloudUser.email!==cloudUser.name?`<br><small>${esc(cloudUser.email)}</small>`:''}</p>
+    <p style="margin:0 0 6px">${st}</p><div class="row"><button data-m="accSync">${ic('loop','lead')}${t('acc_sync')}</button><button data-m="accOut">${t('acc_out')}</button></div>`;}
+window.addEventListener('online',()=>{if(cloudUser)syncAll();});
 function switchProject(id){if(rec){rec=null;micClose();}if(playing)stop();flushSave();
   curId=id;lsSet(PJ_CUR,id);state=readProject(id)||defaultState();UNDO.length=0;REDO.length=0;updUndo();takeBuf.clear();
   applyMix(G);render();loadTakes();const p=curProj();if(p)toast(t('t_pj_open',p.name));}
-function addProject(s,name){flushSave();const id=newId('p');lsSet(pjKey(id),JSON.stringify(s));projects.push({id,name,upd:Date.now()});writeIdx();switchProject(id);return id;}
+function addProject(s,name){flushSave();const id=newId('p');lsSet(pjKey(id),JSON.stringify(s));projects.push({id,name,upd:Date.now()});writeIdx();markDirty(id);switchProject(id);return id;}
 // duplicar copia también el audio de las tomas con ids nuevos (si no, borrar una copia borraría el audio de la otra)
 async function dupProject(id){flushSave();const s=readProject(id),src=projects.find(x=>x.id===id);if(!s||!src)return;
   for(const c of s.clips){const v=await IDB.get(c.id),nid=newId('v');if(v)await IDB.put(nid,v);c.id=nid;}
-  const nid=newId('p');lsSet(pjKey(nid),JSON.stringify(s));projects.push({id:nid,name:t('pj_copy',src.name).slice(0,40),upd:Date.now()});writeIdx();}
-async function delProject(id){const s=readProject(id);if(s)for(const c of s.clips)await IDB.del(c.id);
+  const nid=newId('p');lsSet(pjKey(nid),JSON.stringify(s));projects.push({id:nid,name:t('pj_copy',src.name).slice(0,40),upd:Date.now()});writeIdx();markDirty(nid);}
+async function delProject(id,fromCloud){const s=readProject(id);if(s)for(const c of s.clips)await IDB.del(c.id);
+  if(!fromCloud)addTomb(id);dirty.delete(id);
   try{localStorage.removeItem(pjKey(id));}catch(e){}projects=projects.filter(x=>x.id!==id);writeIdx();
   if(id===curId){if(projects.length){const n=projects.slice().sort((a,b)=>b.upd-a.upd)[0];curId='';switchProject(n.id);}
     else{const s2=defaultState();s2.patterns=[emptyPattern(),emptyPattern(),emptyPattern(),emptyPattern()];curId='';addProject(s2,t('pj_def',1));}}}
@@ -1183,6 +1251,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden){if(rec)fin
 window.addEventListener('pagehide',flushSave);
 paintIcons();renderStatic();render();drawScope();loadTakes();if(!lang)langSheet(true);
 // la pantalla de carga se va sola después de que se vio el título (la app ya está armada debajo)
+if(cloudOn()&&lsGet(ACC_KEY))Cloud.load().catch(e=>console.warn(e));
 setTimeout(()=>{const sp=$('#splash');sp.classList.add('out');setTimeout(()=>sp.remove(),500);},1300);
 </script>
 </body>
