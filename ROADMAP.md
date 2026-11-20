@@ -51,9 +51,9 @@ Leyenda: ✅ hecho · 🚧 en curso · ⬜ pendiente · esfuerzo **B** bajo / **
 
 | | Función | Esf. | Notas |
 |---|---|---|---|
-| ⬜ | Efectos de voz | M | Compuerta de ruido, compresor, eco/reverb preparados, cambio de tono. |
-| ⬜ | Editar tomas | M | Recortar, mover, varias tomas por compás y elegir la mejor. |
-| ⬜ | Afinación automática | A | Detección de tono + corrección hacia la escala del proyecto. |
+| ✅ | Efectos de voz | M | Compuerta de ruido, compresor, eco/reverb preparados, cambio de tono. |
+| ✅ | Editar tomas | M | Recortar, mover, varias tomas por compás y elegir la mejor. |
+| ✅ | Afinación automática | A | Detección de tono + corrección hacia la escala del proyecto. |
 
 ## Fase 5 — Exportar y compartir
 
