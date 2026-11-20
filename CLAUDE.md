@@ -64,6 +64,7 @@ El roadmap de funciones está en `ROADMAP.md` (fases, estado y esfuerzo). Manten
 - Para probar la grabación sin micrófono: en la consola, reemplazar `navigator.mediaDevices.getUserMedia` por una función que devuelva el `stream` de un `ctx.createMediaStreamDestination()` con un oscilador conectado.
 - Para verificar el export: `renderOffline([0], 1)` en la consola devuelve un AudioBuffer.
 - Para verificar tiempos sin analizar audio: reemplazar `playDrum` (o `scheduleStep`) por un envoltorio que anote `t` y llamar a `renderOffline`.
+- **En el equipo Android (APK de prueba):** `adb forward tcp:9222 localabstract:webview_devtools_remote_$(adb shell pidof com.taquiro.takt)` y después `node scripts/device-eval.mjs "<expresión JS>"` evalúa dentro de la app (con gesto de usuario, así se puede arrancar el audio). `ctx.playbackStats` (underrunEvents/underrunDuration) mide cortes de audio. Las primeras reproducciones tras abrir la app pueden cortar (arranque en frío); medir después de calentar.
 - Para probar sin tocar los proyectos del usuario: crear uno temporal con `addProject(estado, 'PRUEBA')` y borrarlo al final con `delProject(id)`.
 
 ## Convenciones
