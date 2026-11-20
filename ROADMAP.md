@@ -42,10 +42,10 @@ Leyenda: ✅ hecho · 🚧 en curso · ⬜ pendiente · esfuerzo **B** bajo / **
 
 | | Función | Esf. | Notas |
 |---|---|---|---|
-| ⬜ | Piano roll | A | Notas con duración, más octavas, velocidad. Reemplaza la grilla fija de bajo y synth. |
-| ⬜ | Synths nuevos | M | FM (campanas, piano eléctrico), pad de cuerdas, pluck. |
-| ⬜ | Arpegiador y acordes por grado | M | Progresiones I–V–vi–IV que siguen la escala. |
-| ⬜ | Sampler propio | M | Cargar audios del usuario o cortar una toma de voz en pads. |
+| ✅ | Piano roll | A | Notas con duración, más octavas, velocidad. Reemplaza la grilla fija de bajo y synth. |
+| ✅ | Synths nuevos | M | FM (campanas, piano eléctrico), pad de cuerdas, pluck. |
+| ✅ | Arpegiador y acordes por grado | M | Progresiones I–V–vi–IV que siguen la escala. |
+| ✅ | Sampler propio | M | Cargar audios del usuario o cortar una toma de voz en pads. |
 
 ## Fase 4 — Voz
 
