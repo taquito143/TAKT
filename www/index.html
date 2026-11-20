@@ -4,23 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#0d0e12">
-<title>Estudio de Bolsillo</title>
+<title>TAKT</title>
 <style>
 :root{--bg:#0d0e12;--panel:#16181f;--panel2:#1f222c;--line:#2a2e3a;--text:#e8e9ee;--dim:#8a8fa0;
---kick:#ff5a4f;--snare:#ffb23f;--clap:#f6e05e;--hat:#5ee1a1;--ohat:#3fc8ff;--tom:#b38bff;--bass:#ff7a3d;--synth:#4fd1ff;--voice:#ff4d6a}
+--kick:#ff5a4f;--snare:#ffb23f;--clap:#f6e05e;--hat:#5ee1a1;--ohat:#3fc8ff;--tom:#b38bff;--bass:#ff7a3d;--synth:#4fd1ff;--voice:#ff4d6a;--p0:#ff7a3d;--p1:#4fd1ff;--p2:#b38bff;--p3:#5ee1a1}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overscroll-behavior:none;-webkit-user-select:none;user-select:none}
 body{display:flex;flex-direction:column;height:100dvh;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
 button,select{font:inherit;color:inherit;background:var(--panel2);border:1px solid var(--line);border-radius:10px;touch-action:manipulation;cursor:pointer}
 header{padding:10px 12px 8px;background:var(--panel);border-bottom:1px solid var(--line);flex:none}
 .r1{display:flex;align-items:center;gap:8px}
-.brand{font-weight:800;letter-spacing:.3px;font-size:15px;white-space:nowrap}.brand b{color:var(--bass)}
+.brand{font-weight:900;letter-spacing:2px;font-size:17px;white-space:nowrap;color:var(--bass)}
 #scope{flex:1;height:30px;min-width:30px;display:block}
-#chain{height:34px;padding:0 10px;font-size:12px;white-space:nowrap}#chain.on{background:var(--bass);color:#111;border-color:var(--bass)}
+#songBtn{height:34px;padding:0 10px;font-size:12px;white-space:nowrap}#songBtn.on{background:var(--bass);color:#111;border-color:var(--bass)}
 #menuBtn{width:40px;height:34px;font-size:18px}
 #undo,#redo{width:36px;height:34px;font-size:17px;padding:0;flex:none}
 button:disabled{opacity:.35;cursor:default}
-@media (max-width:430px){#chain span{display:none}}
+@media (max-width:430px){#songBtn span{display:none}}
 #scope.clip{filter:hue-rotate(-25deg) saturate(3)}
 .pad em,.pad b{position:absolute;right:7px;font-style:normal;font-weight:700;font-size:11px}
 .pad em{top:5px}.pad b{top:19px;font-size:10px;opacity:.85}
@@ -105,6 +105,12 @@ select{height:36px;padding:0 8px;width:100%}
 .tlbars button.sel{border-color:var(--voice);color:var(--text);background:color-mix(in srgb,var(--voice) 25%,var(--bg))}
 .tlbars button.cur{box-shadow:inset 0 0 0 2px #fff}
 .lane{position:relative;height:22px;margin-top:4px}
+.tlbars.arr{margin-top:3px}.tlbars.arr button{height:40px;font-size:15px;font-weight:800;color:#111;background:var(--pc);border-color:transparent}
+.tlbars.arr button.off{background:var(--bg);color:var(--dim);border-color:var(--line)}
+.card h3 button.on2{background:var(--bass);color:#111;border-color:var(--bass)}
+.tools button[data-k="sfill"]{font-size:12px;height:38px}
+input.txt{width:100%;height:46px;border-radius:10px;background:var(--bg);color:var(--text);border:1px solid var(--line);padding:0 12px;font:inherit;font-size:16px;-webkit-user-select:text;user-select:text;margin:4px 0}
+.pjlist{max-height:52vh;overflow-y:auto;margin-bottom:6px}.pjlist .take div{cursor:pointer}.pjlist b{color:var(--bass);font-weight:600;font-size:11px}
 .clip{position:absolute;top:0;bottom:0;border-radius:5px;background:var(--voice);color:#111;font-size:10px;font-weight:700;padding:0 5px;overflow:hidden;white-space:nowrap;line-height:22px}
 .clip.miss{background:repeating-linear-gradient(45deg,#3a3a44,#3a3a44 4px,#2a2a33 4px,#2a2a33 8px);color:var(--dim)}
 .recbtn{display:block;width:100%;height:52px;margin-top:12px;border:none;background:var(--voice);color:#fff;font-weight:700;font-size:15px}
@@ -121,10 +127,10 @@ select{height:36px;padding:0 8px;width:100%}
 <body>
 <header>
   <div class="r1">
-    <div class="brand">Estudio<b>·</b>Bolsillo</div>
+    <div class="brand">TAKT</div>
     <canvas id="scope"></canvas>
     <button id="undo" disabled>↶</button><button id="redo" disabled>↷</button>
-    <button id="chain">🔗 <span data-i="chain">Cadena</span></button>
+    <button id="songBtn">🎼 <span data-i="song">Canción</span></button>
     <button id="menuBtn">⋯</button>
   </div>
   <div class="r2">
@@ -138,7 +144,7 @@ select{height:36px;padding:0 8px;width:100%}
   <button data-tab="drums"><i>🥁</i><span data-i="tab_drums">Ritmo</span></button>
   <button data-tab="bass"><i>🎸</i><span data-i="tab_bass">Bajo</span></button>
   <button data-tab="synth"><i>🎹</i><span data-i="tab_synth">Synth</span></button>
-  <button data-tab="voice"><i>🎤</i><span data-i="tab_voice">Voz</span></button>
+  <button data-tab="voice"><i>🎼</i><span data-i="tab_voice">Canción</span></button>
   <button data-tab="mix"><i>🎚️</i><span data-i="tab_mix">Mezcla</span></button>
 </nav>
 <div id="sheet" class="hide"><div class="sheet-in" id="sheetIn"></div></div>
@@ -147,11 +153,15 @@ select{height:36px;padding:0 8px;width:100%}
 <script>
 "use strict";
 const $=s=>document.querySelector(s);
+/* ---------- TAKT se llamaba "Estudio·Bolsillo": las claves viejas 'estudio-bolsillo-*' pasan a 'takt-*' una sola vez ---------- */
+(function migrateKeys(){try{const OLD='estudio-bolsillo-',ks=Object.keys(localStorage).filter(k=>k.startsWith(OLD)&&k!==OLD+'p:');if(!ks.length)return;
+  for(const k of ks){const nk='takt-'+k.slice(OLD.length);if(localStorage.getItem(nk)==null)localStorage.setItem(nk,localStorage.getItem(k));}
+  for(const k of Object.keys(localStorage))if(k.startsWith(OLD))localStorage.removeItem(k);}catch(e){}})(); // si falla la copia (espacio lleno) no se borra nada
 /* ---------- idiomas (es / en) ---------- */
-const LANG_KEY='estudio-bolsillo-lang';
+const LANG_KEY='takt-lang';
 const I18N={
-es:{chain:"Cadena",chain_title:"Encadenar patrones",menu:"Menú",play:"Reproducir",bpm:"BPM",
-  tab_drums:"Ritmo",tab_bass:"Bajo",tab_synth:"Synth",tab_voice:"Voz",tab_mix:"Mezcla",
+es:{song:"Canción",song_title:"Modo canción: suena el arreglo",menu:"Menú",play:"Reproducir",bpm:"BPM",
+  tab_drums:"Ritmo",tab_bass:"Bajo",tab_synth:"Synth",tab_voice:"Canción",tab_mix:"Mezcla",
   dr_kick:"Bombo",dr_snare:"Caja",dr_clap:"Palmas",dr_hat:"Hat",dr_ohat:"Hat abierto",dr_ohat_s:"H.abierto",dr_tom:"Tom",
   kit:"Kit",custom:"Personalizado",snd_prev:"Sonido anterior",snd_next:"Sonido siguiente",snd_track:"Sonido de la pista",
   hint_step:"Tocá un paso: encendido → acento → apagado",accent_badge:"ACENTO",rand_drums:"🎲 Ritmo sorpresa",clear_drums:"Borrar ritmo",
@@ -162,10 +172,10 @@ es:{chain:"Cadena",chain_title:"Encadenar patrones",menu:"Menú",play:"Reproduci
   key_groove:"Tonalidad y groove",key:"Tonalidad",swing:"Swing",fx_out:"Efectos y salida",echo_time:"Tiempo eco",feedback:"Repeticiones",master:"Volumen general",
   sc_Menor:"Menor",sc_Mayor:"Mayor","sc_Pentatónica":"Pentatónica","sc_Dórica":"Dórica",sc_Frigia:"Frigia",sc_Blues:"Blues",
   project:"Proyecto",m_export:"🎧 Exportar audio (WAV)",m_dup:"⧉ Duplicar patrón {0} → {1}",m_save:"💾 Guardar proyecto (.json)",m_open:"📂 Abrir proyecto",m_lang:"🌐 Idioma: Español",m_clear:"Borrar patrón {0}",m_reset:"Empezar de cero",
-  ex_title:"Exportar audio",ex_chain:"Cadena",ex_pat:"Patrón",ex_rep:"repetido:",ex_info:"Duración ≈ {0} s. Se descarga un .zip con el archivo WAV adentro.",ex_go:"Exportar",rendering:"Renderizando…",wait:"Un momento.",
-  reset_q:"¿Empezar de cero?",reset_info:"Se borran los 4 patrones, las tomas de voz y los ajustes.",reset_yes:"Sí, borrar todo",cancel:"Cancelar",
+  ex_title:"Exportar audio",ex_song:"Canción de {0} compases",ex_pat:"Patrón",ex_rep:"repetido:",ex_info:"Duración ≈ {0} s. Se descarga un .zip con el archivo WAV adentro.",ex_go:"Exportar",rendering:"Renderizando…",wait:"Un momento.",
+  reset_q:"¿Empezar de cero?",reset_info:"Se borran los 4 patrones, el arreglo, las tomas de voz y los ajustes de este proyecto.",reset_yes:"Sí, borrar todo",cancel:"Cancelar",
   t_export_fail:"No se pudo exportar",t_copied:"Copiado en {0}",t_opened:"Proyecto abierto",t_badfile:"Ese archivo no es un proyecto válido",t_done:"Listo",t_cancelled:"Cancelado",t_wait:"Esperá un momento y probá de nuevo",t_nodl:"Este visor no permite descargas",
-  t_chain_on:"Cadena: se tocan en orden los patrones con contenido",t_chain_off:"Cadena apagada",t_json_voice:"Guardado. Las tomas de voz quedan solo en este equipo.",
+  t_song_on:"Modo canción: suena el arreglo de compases",t_song_off:"Modo patrón: se repite el patrón elegido",s_arr:"Arreglo y voz",s_brush:"Patrón",s_on:"🎼 Canción",s_off:"🔁 Patrón",s_mode_on:"Suena el arreglo, compás por compás.",s_mode_off:"Ahora se repite solo el patrón elegido. Encendé 🎼 Canción para escuchar el arreglo.",s_hint:"Elegí un patrón y tocá los compases para ubicarlo; ✕ deja el compás en silencio. Un patrón de 32 pasos ocupa 2 compases seguidos.",s_rec_from:"Grabar desde",s_fill:"Todo {0}",m_projects:"📁 Proyectos",pj_title:"Proyectos",pj_new:"+ Proyecto nuevo",pj_def:"Proyecto {0}",pj_first:"Mi proyecto",pj_copy:"{0} (copia)",pj_cur:"abierto",pj_rename:"Renombrar",pj_dup:"Duplicar",pj_del:"Borrar",pj_save:"Guardar",pj_del_q:"¿Borrar «{0}»?",pj_del_info:"Se borran sus patrones y sus tomas de voz. No se puede deshacer.",t_pj_open:"Abierto: {0}",t_pj_new:"Proyecto nuevo creado",t_pj_dup:"Copia creada",t_pj_del:"Proyecto borrado",t_json_voice:"Guardado. Las tomas de voz quedan solo en este equipo.",
   lang_title:"Idioma",
   v_timeline:"Línea de tiempo de voz",v_bars:"Compases",v_rec:"● Grabar desde el compás {0}",v_stop:"■ Parar y guardar",v_count:"Cuenta…",v_recording:"● Grabando",
   v_hint:"Tocá un compás para elegir dónde empezar. Antes de grabar suena 1 compás de cuenta. Usá auriculares para que el beat no se meta en la grabación.",
@@ -173,8 +183,8 @@ es:{chain:"Cadena",chain_title:"Encadenar patrones",menu:"Menú",play:"Reproduci
   v_sync:"Sincronía",v_lat:"Ajuste (ms)",v_lat_hint:"Si la voz suena atrasada respecto del beat, subí el ajuste; si suena adelantada, bajalo. Vale para las próximas tomas.",
   v_del_q:"¿Borrar {0}?",v_del_info:"No se puede deshacer.",v_del_yes:"Sí, borrar",
   t_mic_denied:"No se pudo usar el micrófono",t_mic_none:"Este dispositivo no permite grabar",t_too_short:"La toma quedó muy corta",t_take_saved:"{0} guardada",t_nostore:"No se pudo guardar el audio: se pierde al cerrar la app"},
-en:{chain:"Chain",chain_title:"Chain patterns",menu:"Menu",play:"Play",bpm:"BPM",
-  tab_drums:"Drums",tab_bass:"Bass",tab_synth:"Synth",tab_voice:"Voice",tab_mix:"Mix",
+en:{song:"Song",song_title:"Song mode: play the arrangement",menu:"Menu",play:"Play",bpm:"BPM",
+  tab_drums:"Drums",tab_bass:"Bass",tab_synth:"Synth",tab_voice:"Song",tab_mix:"Mix",
   dr_kick:"Kick",dr_snare:"Snare",dr_clap:"Clap",dr_hat:"Hat",dr_ohat:"Open hat",dr_ohat_s:"O.hat",dr_tom:"Tom",
   kit:"Kit",custom:"Custom",snd_prev:"Previous sound",snd_next:"Next sound",snd_track:"Track sound",
   hint_step:"Tap a step: on → accent → off",accent_badge:"ACCENT",rand_drums:"🎲 Random beat",clear_drums:"Clear beat",
@@ -185,10 +195,10 @@ en:{chain:"Chain",chain_title:"Chain patterns",menu:"Menu",play:"Play",bpm:"BPM"
   key_groove:"Key and groove",key:"Key",swing:"Swing",fx_out:"Effects and output",echo_time:"Echo time",feedback:"Feedback",master:"Master volume",
   sc_Menor:"Minor",sc_Mayor:"Major","sc_Pentatónica":"Pentatonic","sc_Dórica":"Dorian",sc_Frigia:"Phrygian",sc_Blues:"Blues",
   project:"Project",m_export:"🎧 Export audio (WAV)",m_dup:"⧉ Duplicate pattern {0} → {1}",m_save:"💾 Save project (.json)",m_open:"📂 Open project",m_lang:"🌐 Language: English",m_clear:"Clear pattern {0}",m_reset:"Start over",
-  ex_title:"Export audio",ex_chain:"Chain",ex_pat:"Pattern",ex_rep:"repeated:",ex_info:"Length ≈ {0} s. You get a .zip with the WAV file inside.",ex_go:"Export",rendering:"Rendering…",wait:"One moment.",
-  reset_q:"Start over?",reset_info:"This deletes the 4 patterns, the voice takes and the settings.",reset_yes:"Yes, delete everything",cancel:"Cancel",
+  ex_title:"Export audio",ex_song:"Song of {0} bars",ex_pat:"Pattern",ex_rep:"repeated:",ex_info:"Length ≈ {0} s. You get a .zip with the WAV file inside.",ex_go:"Export",rendering:"Rendering…",wait:"One moment.",
+  reset_q:"Start over?",reset_info:"This deletes the 4 patterns, the arrangement, the voice takes and the settings of this project.",reset_yes:"Yes, delete everything",cancel:"Cancel",
   t_export_fail:"Export failed",t_copied:"Copied to {0}",t_opened:"Project opened",t_badfile:"That file is not a valid project",t_done:"Done",t_cancelled:"Cancelled",t_wait:"Wait a moment and try again",t_nodl:"This viewer does not allow downloads",
-  t_chain_on:"Chain: patterns with content play in order",t_chain_off:"Chain off",t_json_voice:"Saved. Voice takes stay on this device only.",
+  t_song_on:"Song mode: the bar arrangement plays",t_song_off:"Pattern mode: the selected pattern loops",s_arr:"Arrangement and voice",s_brush:"Pattern",s_on:"🎼 Song",s_off:"🔁 Pattern",s_mode_on:"The arrangement plays, bar by bar.",s_mode_off:"Only the selected pattern loops now. Turn on 🎼 Song to hear the arrangement.",s_hint:"Pick a pattern and tap bars to place it; ✕ leaves the bar silent. A 32-step pattern spans 2 bars in a row.",s_rec_from:"Record from",s_fill:"All {0}",m_projects:"📁 Projects",pj_title:"Projects",pj_new:"+ New project",pj_def:"Project {0}",pj_first:"My project",pj_copy:"{0} (copy)",pj_cur:"open",pj_rename:"Rename",pj_dup:"Duplicate",pj_del:"Delete",pj_save:"Save",pj_del_q:"Delete “{0}”?",pj_del_info:"Its patterns and voice takes are deleted. This cannot be undone.",t_pj_open:"Opened: {0}",t_pj_new:"New project created",t_pj_dup:"Copy created",t_pj_del:"Project deleted",t_json_voice:"Saved. Voice takes stay on this device only.",
   lang_title:"Language",
   v_timeline:"Voice timeline",v_bars:"Bars",v_rec:"● Record from bar {0}",v_stop:"■ Stop and save",v_count:"Count-in…",v_recording:"● Recording",
   v_hint:"Tap a bar to choose where to start. A 1-bar count-in plays before recording. Use headphones so the beat does not leak into the recording.",
@@ -206,7 +216,7 @@ const noteName=i=>NOTES[L()][i];
 const SCALES={'Menor':[0,2,3,5,7,8,10],'Mayor':[0,2,4,5,7,9,11],'Pentatónica':[0,3,5,7,10],'Dórica':[0,2,3,5,7,9,10],'Frigia':[0,1,3,5,7,8,10],'Blues':[0,3,5,6,7,10]};
 const DRUMS=[{id:'kick',name:'Bombo',def:'k-clasico'},{id:'snare',name:'Caja',def:'s-clasico'},{id:'clap',name:'Palmas',def:'c-clasico'},{id:'hat',name:'Hat',def:'h-clasico'},{id:'ohat',name:'Hat abierto',def:'o-clasico'},{id:'tom',name:'Tom',def:'t-clasico'}];
 const CH=['drums','bass','synth','voice'];
-const ROWS=12, KEY='estudio-bolsillo-v1';
+const ROWS=12, KEY='takt-v1';
 
 /* ---------- estado ---------- */
 // cada patrón guarda siempre 32 pasos; `len` (8/16/32) dice cuántos suenan.
@@ -221,9 +231,18 @@ function normPattern(P){const E=emptyPattern();if(!P||typeof P!=='object')return
     for(const d of DRUMS){const a=Array.isArray(src[d.id])?src[d.id]:[];P[k][d.id]=E[k][d.id].map((v,i)=>typeof a[i]==='number'?a[i]:v);}}
   const B=Array.isArray(P.bass)?P.bass:[],S=Array.isArray(P.synth)?P.synth:[];
   P.bass=E.bass.map((v,i)=>B[i]&&typeof B[i]==='object'?B[i]:v);P.synth=E.synth.map((v,i)=>Array.isArray(S[i])?S[i]:v);return P;}
-function fixState(s){s.patterns=s.patterns.map(normPattern);return s;}
+// song.seq: un patrón (0–3) o -1 (silencio) por compás de 16 pasos; suenan los primeros voice.bars
+const MAXBARS=32,BARS=[4,8,16,32];
+function fixState(s){s.patterns=s.patterns.map(normPattern);
+  if(!BARS.includes(s.voice.bars))s.voice.bars=8;
+  const q=s.song&&Array.isArray(s.song.seq)?s.song.seq:[];
+  s.song={on:!!(s.song&&s.song.on),seq:Array.from({length:MAXBARS},(_,i)=>Number.isInteger(q[i])&&q[i]>=-1&&q[i]<4?q[i]:0)};
+  if(s.chain){ // proyectos con el viejo modo cadena: el arreglo repite los patrones con contenido, en orden
+    const o=[];s.patterns.forEach((p,i)=>{if(!isEmpty(p))o.push(i);});const bars=[];
+    if(o.length){while(bars.length<MAXBARS)for(const i of o)for(let k=0;k<Math.max(1,s.patterns[i].len/16);k++)bars.push(i);s.song.seq=bars.slice(0,MAXBARS);s.song.on=true;}}
+  delete s.chain;return s;}
 function defaultState(){
-  const s={v:1,bpm:122,swing:0.08,root:9,scale:'Menor',cur:0,chain:false,
+  const s={v:1,bpm:122,swing:0.08,root:9,scale:'Menor',cur:0,song:{on:false,seq:Array(32).fill(0)},
     snd:Object.fromEntries(DRUMS.map(d=>[d.id,d.def])),
     voice:{bars:8,lat:0,n:0},clips:[],
     bassP:{wave:'saw',cut:0.3,res:0.65,env:0.55,dec:0.3,drive:0.25,oct:0},
@@ -238,9 +257,28 @@ function defaultState(){
   return s;
 }
 function merge(base,o){for(const k in o){if(o[k]&&typeof o[k]==='object'&&!Array.isArray(o[k])&&base[k]&&typeof base[k]==='object')merge(base[k],o[k]);else base[k]=o[k];}return base;}
-function load(){try{const t=localStorage.getItem(KEY);if(!t)return null;const o=JSON.parse(t);if(!o||!Array.isArray(o.patterns)||o.patterns.length!==4)return null;return fixState(merge(defaultState(),o));}catch(e){return null;}}
-let saveT=0;function save(){clearTimeout(saveT);saveT=setTimeout(()=>{try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}},300);}
-let state=load()||defaultState();
+/* ---------- proyectos: un índice + un registro por proyecto en localStorage ----------
+   El audio de las tomas vive en IndexedDB con ids únicos, así que no choca entre proyectos. */
+const PJ_IDX='takt-projects',PJ_CUR='takt-cur',pjKey=id=>'takt-p:'+id;
+const lsGet=k=>{try{return localStorage.getItem(k);}catch(e){return null;}},lsSet=(k,v)=>{try{localStorage.setItem(k,v);return true;}catch(e){return false;}};
+const newId=p=>p+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+let projects=[],curId='';
+function parseProject(txt){try{const o=typeof txt==='string'?JSON.parse(txt):txt;if(!o||!Array.isArray(o.patterns)||o.patterns.length!==4)return null;return fixState(merge(defaultState(),o));}catch(e){return null;}}
+const readProject=id=>{const x=lsGet(pjKey(id));return x?parseProject(x):null;};
+const writeIdx=()=>lsSet(PJ_IDX,JSON.stringify(projects));
+const curProj=()=>projects.find(p=>p.id===curId);
+function initProjects(){
+  try{projects=JSON.parse(lsGet(PJ_IDX)||'null');}catch(e){projects=null;}
+  if(!Array.isArray(projects)||!projects.length){
+    // primera vez con proyectos: el proyecto único de antes (clave KEY) pasa a ser el primero; KEY queda como respaldo
+    const id=newId('p'),old=lsGet(KEY),s=(old&&parseProject(old))||defaultState();
+    projects=[{id,name:t('pj_first'),upd:Date.now()}];lsSet(pjKey(id),JSON.stringify(s));writeIdx();curId=id;lsSet(PJ_CUR,id);return s;}
+  curId=lsGet(PJ_CUR);if(!curProj())curId=projects[0].id;lsSet(PJ_CUR,curId);
+  return readProject(curId)||defaultState();}
+let saveT=0;
+function save(){clearTimeout(saveT);saveT=setTimeout(flushSave,300);}
+function flushSave(){clearTimeout(saveT);if(!curId)return;lsSet(pjKey(curId),JSON.stringify(state));const p=curProj();if(p){p.upd=Date.now();writeIdx();}}
+let state=initProjects();
 let tab='drums',selDrum='kick',bassPage=0,synPage=0,drumPage=0,dmode='hit';
 
 /* ---------- deshacer / rehacer: fotos del estado en JSON ----------
@@ -264,7 +302,6 @@ function rowMidi(base,r){const sc=scale();return base+sc[r%sc.length]+12*Math.fl
 const mtof=m=>440*Math.pow(2,(m-69)/12);
 function isEmpty(P){const n=P.len;return !DRUMS.some(d=>P.drums[d.id].some((v,i)=>v&&i<n))&&!P.bass.some((b,i)=>b.n>=0&&i<n)&&!P.synth.some((c,i)=>c.length&&i<n);}
 const totalSteps=order=>order.reduce((a,i)=>a+state.patterns[i].len,0);
-function chainOrder(){const o=[];state.patterns.forEach((p,i)=>{if(!isEmpty(p))o.push(i);});return o.length?o:[state.cur];}
 function getPath(p){return p.split('.').reduce((o,k)=>o[k],state);}
 function setPath(p,v){const ks=p.split('.');const last=ks.pop();ks.reduce((o,k)=>o[k],state)[last]=v;}
 
@@ -586,15 +623,21 @@ function ensureAudio(){
 // pStep es el paso dentro del patrón, que puede durar 8, 16 o 32 pasos.
 let playing=false,timer=0,gStep=0,pStep=0,t0=0,playPat=0,queue=[],shownPat=-1,lastNow=-1;
 let tlPos=0,firstBar=false,lastBar=-1; // tlPos: compás actual de la línea de tiempo de voz
-function nextPat(){if(state.chain){const o=chainOrder(),i=o.indexOf(playPat);return o[(i+1)%o.length];}return state.cur;}
+// modo canción: el compás `bar` toca el patrón de song.seq. Si el mismo patrón ocupa varios compases
+// seguidos, avanza por ellos (uno de 32 pasos usa 2 compases; uno de 8 se repite 2 veces por compás).
+function songStep(gr,bar,si,ts,sd,live){const seq=state.song.seq,p=seq[bar];
+  if(!(p>=0)){if(live&&si===0)queue.push({s:-1,t:ts,pat:-1,bar});return;}
+  let b0=bar;while(b0>0&&seq[b0-1]===p)b0--;const ps=((bar-b0)*16+si)%state.patterns[p].len;
+  scheduleStep(gr,p,ps,ts-ps*sd,sd,live);}
 function tick(){const sd=stepDur();while(t0+gStep*sd<ctx.currentTime+0.12){const ts=t0+gStep*sd;
   if(rec&&rec.endAt&&ts>=rec.endAt)return; // la toma llegó al final de la línea de tiempo
   if(gStep%16===0){scheduleVoices(G,tlPos,ts,16*sd,firstBar);firstBar=false;}
-  scheduleStep(G,playPat,pStep,ts-pStep*sd,sd,true);gStep++;
-  if(++pStep>=state.patterns[playPat].len){pStep=0;playPat=nextPat();}
+  if(state.song.on)songStep(G,tlPos,gStep%16,ts,sd,true);
+  else{scheduleStep(G,playPat,pStep,ts-pStep*sd,sd,true);if(++pStep>=state.patterns[playPat].len){pStep=0;playPat=state.cur;}}
+  gStep++;
   if(gStep%16===0&&++tlPos>=state.voice.bars){tlPos=0;if(rec&&!rec.endAt)rec.endAt=t0+gStep*sd;}}}
 function startTransport(at,bar){playing=true;gStep=0;pStep=0;t0=at;tlPos=bar%state.voice.bars;firstBar=true;
-  if(state.chain){const o=chainOrder();playPat=o.includes(state.cur)?state.cur:o[0];}else playPat=state.cur;
+  playPat=state.cur;
   queue=[];tick();timer=setInterval(tick,25);renderHeader();}
 function play(){ensureAudio();if(rec)return finishRec();if(playing)return stop();startTransport(ctx.currentTime+0.06,0);}
 function stop(){playing=false;clearInterval(timer);queue=[];shownPat=-1;clearNow();
@@ -608,9 +651,9 @@ function loop(){
   requestAnimationFrame(loop);
   if(playing){let cur=null;while(queue.length&&queue[0].t<=ctx.currentTime)cur=queue.shift();
     if(cur){
-      if(cur.pat!==shownPat){shownPat=cur.pat;if(state.chain&&state.cur!==cur.pat){state.cur=cur.pat;render();}else renderHeader();}
+      if(cur.pat!==shownPat){shownPat=cur.pat;if(state.song.on&&cur.pat>=0&&state.cur!==cur.pat){state.cur=cur.pat;render();}else renderHeader();}
       if(cur.pat===state.cur){clearNow();document.querySelectorAll(`[data-col="${cur.s}"]`).forEach(e=>e.classList.add('now'));lastNow=cur.s;}else clearNow();
-      if(tab==='drums'){const P=state.patterns[cur.pat];for(const d of DRUMS)if(P.drums[d.id][cur.s]){const l=document.getElementById('led-'+d.id);if(l){l.classList.add('hit');setTimeout(()=>l.classList.remove('hit'),90);}}}
+      if(tab==='drums'&&cur.pat>=0){const P=state.patterns[cur.pat];for(const d of DRUMS)if(P.drums[d.id][cur.s]){const l=document.getElementById('led-'+d.id);if(l){l.classList.add('hit');setTimeout(()=>l.classList.remove('hit'),90);}}}
       if(tab==='voice'&&cur.bar!==lastBar){document.querySelectorAll('.tlbars .cur').forEach(e=>e.classList.remove('cur'));const b=document.querySelector(`.tlbars [data-bar="${cur.bar}"]`);if(b)b.classList.add('cur');lastBar=cur.bar;}
     }}
   if(rec){const el=document.getElementById('recstate'),now=ctx.currentTime;
@@ -631,14 +674,14 @@ function drawScope(){const dpr=window.devicePixelRatio||1,w=scope.clientWidth,h=
 /* ---------- vistas ---------- */
 function renderHeader(){
   $('#bpmV').textContent=state.bpm;$('#play').classList.toggle('on',playing);$('#play').textContent=playing?'■':'▶';
-  $('#chain').classList.toggle('on',state.chain);
+  $('#songBtn').classList.toggle('on',state.song.on);
   $('#slots').innerHTML=state.patterns.map((p,i)=>`<button class="slot ${i===state.cur?'on':''} ${isEmpty(p)?'':'has'} ${playing&&i===shownPat?'playing':''}" data-slot="${i}">${'ABCD'[i]}</button>`).join('');
 }
 function render(){renderHeader();const m=$('#main');
   m.innerHTML=tab==='drums'?viewDrums():tab==='bass'?viewBass():tab==='synth'?viewSynth():tab==='voice'?viewVoice():viewMix();
   document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.tab===tab));lastNow=-1;lastBar=-1;}
 function renderStatic(){document.documentElement.lang=L();document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
-  $('#chain').title=t('chain_title');$('#menuBtn').setAttribute('aria-label',t('menu'));$('#play').setAttribute('aria-label',t('play'));
+  $('#songBtn').title=t('song_title');$('#menuBtn').setAttribute('aria-label',t('menu'));$('#play').setAttribute('aria-label',t('play'));
   $('#undo').title=t('undo');$('#undo').setAttribute('aria-label',t('undo'));$('#redo').title=t('redo');$('#redo').setAttribute('aria-label',t('redo'));}
 function viewDrums(){
   const P=pat(),arr=P.drums[selDrum],ck=curKit(),sndOf=x=>SND[state.snd[x.id]]||SND[x.def];
@@ -704,9 +747,21 @@ function viewMix(){
    el proyecto solo guarda {id, compás, duración, número}. */
 const takeBuf=new Map();let recBar=0,rec=null,mic=null;
 const IDB={p:null,
-  open(){if(!this.p)this.p=new Promise(res=>{try{const r=indexedDB.open('estudio-bolsillo',1);r.onupgradeneeded=()=>r.result.createObjectStore('takes');r.onsuccess=()=>res(r.result);r.onerror=()=>res(null);}catch(e){res(null);}});return this.p;},
+  open(){if(!this.p)this.p=new Promise(res=>{try{const r=indexedDB.open('takt',1);r.onupgradeneeded=()=>r.result.createObjectStore('takes');r.onsuccess=()=>res(this.migrate(r.result));r.onerror=()=>res(null);}catch(e){res(null);}});return this.p;},
   async run(mode,fn,isGet){const db=await this.open();if(!db)return null;
     return new Promise(res=>{try{const tx=db.transaction('takes',mode),rq=fn(tx.objectStore('takes'));tx.oncomplete=()=>res(isGet?(rq.result||null):true);tx.onerror=tx.onabort=()=>res(null);}catch(e){res(null);}});},
+  // copia una sola vez las tomas de la base vieja 'estudio-bolsillo' (nombre anterior de la app) y la borra
+  migrate(db){return new Promise(res=>{if(lsGet('takt-idb')){res(db);return;}const done=()=>{lsSet('takt-idb','1');res(db);},OLD='estudio-bolsillo';
+    try{const r=indexedDB.open(OLD);r.onupgradeneeded=()=>r.transaction.abort(); // no existía: no la creamos
+      r.onerror=()=>done();
+      r.onsuccess=()=>{const old=r.result,fin=ok=>{old.close();if(ok){indexedDB.deleteDatabase(OLD);done();}else res(db);};
+        if(!old.objectStoreNames.contains('takes'))return fin(true);
+        const items=[],cur=old.transaction('takes').objectStore('takes').openCursor();
+        cur.onsuccess=()=>{const c=cur.result;if(c){items.push([c.key,c.value]);c.continue();return;}
+          const tx=db.transaction('takes','readwrite'),st=tx.objectStore('takes');for(const [k,v] of items)st.put(v,k);
+          tx.oncomplete=()=>fin(true);tx.onerror=tx.onabort=()=>fin(false);};
+        cur.onerror=()=>fin(false);};}
+    catch(e){done();}});},
   put(k,v){return this.run('readwrite',s=>s.put(v,k));},get(k){return this.run('readonly',s=>s.get(k),true);},del(k){return this.run('readwrite',s=>s.delete(k));}};
 function makeBuf(sr,data){const b=new AudioBuffer({length:Math.max(1,data.length),sampleRate:sr,numberOfChannels:1});b.copyToChannel(data,0);return b;}
 async function loadTakes(){let n=0;for(const c of state.clips)if(!takeBuf.has(c.id)){const v=await IDB.get(c.id);if(v&&v.data){takeBuf.set(c.id,makeBuf(v.sr,v.data));n++;}}if(n&&tab==='voice')render();}
@@ -743,10 +798,21 @@ async function finishRec(){const r=rec;if(!r)return;rec=null;const endT=Math.min
   const id='v'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),n=++state.voice.n;
   takeBuf.set(id,makeBuf(sr,out));state.clips.push({id,bar:r.bar,dur:N/sr,n});save();render();
   const ok=await IDB.put(id,{sr,data:out});toast(ok?t('t_take_saved',t('v_take',n)):t('t_nostore'));}
-function viewVoice(){const nb=state.voice.bars,bd=16*stepDur();if(recBar>=nb)recBar=0;
-  let h=`<div class="card"><h3>${t('v_timeline')}</h3>${seg(t('v_bars'),'voice.bars',[[4,'4'],[8,'8'],[16,'16']])}
-  <div class="tl"><div class="tlbars" style="--n:${nb}">${Array.from({length:nb},(_,i)=>`<button data-k="vbar" data-v="${i}" data-bar="${i}" class="${i===recBar?'sel':''}">${i+1}</button>`).join('')}</div>
-  ${state.clips.filter(c=>c.bar<nb).map(c=>{const w=Math.min(c.dur/bd,nb-c.bar);return `<div class="lane"><div class="clip ${takeBuf.has(c.id)?'':'miss'}" style="left:${c.bar/nb*100}%;width:${w/nb*100}%">${t('v_take',c.n)}</div></div>`;}).join('')}</div>
+// pestaña Canción: el arreglo de patrones y la voz comparten la misma línea de compases, de a 8 por fila
+let brush=0;
+function viewVoice(){const nb=state.voice.bars,bd=16*stepDur(),seq=state.song.seq,so=state.song.on;if(recBar>=nb)recBar=0;
+  let h=`<div class="card"><h3>${t('s_arr')}<button data-k="song" class="${so?'on2':''}">${so?t('s_on'):t('s_off')}</button></h3>
+  <p class="hint" style="text-align:left;margin:0 0 4px">${t(so?'s_mode_on':'s_mode_off')}</p>
+  ${seg(t('v_bars'),'voice.bars',BARS.map(b=>[b,String(b)]))}
+  <div class="seg"><span>${t('s_brush')}</span><div>${[0,1,2,3,-1].map(v=>`<button data-k="brush" data-v="${v}" class="${brush===v?'on':''}">${v<0?'✕':'ABCD'[v]}</button>`).join('')}</div></div>`;
+  for(let c0=0;c0<nb;c0+=8){const bars=[];for(let i=c0;i<Math.min(nb,c0+8);i++)bars.push(i);
+    h+=`<div class="tl"><div class="tlbars" style="--n:8">${bars.map(i=>`<button data-k="vbar" data-v="${i}" data-bar="${i}" class="${i===recBar?'sel':''}">${i+1}</button>`).join('')}</div>
+    <div class="tlbars arr" style="--n:8">${bars.map(i=>{const p=seq[i];return `<button data-k="sbar" data-v="${i}" class="${p<0?'off':''}" style="--pc:var(--p${p})">${p<0?'·':'ABCD'[p]}</button>`;}).join('')}</div>`;
+    for(const c of state.clips){if(c.bar>=nb)continue;const a=c.bar,z=Math.min(nb,a+c.dur/bd);if(z<=c0||a>=c0+8)continue;const l=Math.max(a,c0),r=Math.min(z,c0+8);
+      h+=`<div class="lane"><div class="clip ${takeBuf.has(c.id)?'':'miss'}" style="left:${(l-c0)/8*100}%;width:${(r-l)/8*100}%">${l===a?t('v_take',c.n):''}</div></div>`;}
+    h+='</div>';}
+  h+=`<div class="tools" style="margin-top:8px">${[0,1,2,3].map(v=>`<button data-k="sfill" data-v="${v}">${t('s_fill','ABCD'[v])}</button>`).join('')}</div>
+  <p class="hint">${t('s_hint')}</p>
   <button class="recbtn ${rec?'on':''}" data-k="rec">${rec?t('v_stop'):t('v_rec',recBar+1)}</button><div class="recstate" id="recstate"></div>
   <p class="hint">${t('v_hint')}</p></div>`;
   h+=`<div class="card"><h3>${t('v_takes')}</h3>${state.clips.length?state.clips.map(c=>`<div class="take"><div>${t('v_take',c.n)}<small>${t('v_bar',c.bar+1)} · ${c.dur.toFixed(1)} s${takeBuf.has(c.id)?'':' · '+t('v_noaudio')}${c.bar>=nb?' · '+t('v_outside'):''}</small></div><button data-k="vplay" data-id="${c.id}" aria-label="${t('v_play')}">▶</button><button data-k="vdel" data-id="${c.id}" aria-label="${t('v_del')}">🗑</button></div>`).join(''):`<p class="hint">${t('v_none')}</p>`}</div>`;
@@ -793,6 +859,10 @@ $('#main').addEventListener('click',e=>{
   else if(k==='sstep'){const n=SND_LIST.length,i=SND_LIST.findIndex(s=>s.id===state.snd[selDrum]);
     state.snd[selDrum]=SND_LIST[((i<0?0:i)+(+el.dataset.v)+n)%n].id;preview((g,t)=>playDrum(g,selDrum,t,0.9));}
   else if(k==='vbar'){if(!rec)recBar=+el.dataset.v;}
+  else if(k==='brush'){brush=+el.dataset.v;}
+  else if(k==='sbar'){const i=+el.dataset.v;state.song.seq[i]=state.song.seq[i]===brush&&brush>=0?-1:brush;}
+  else if(k==='sfill'){state.song.seq.fill(+el.dataset.v);}
+  else if(k==='song'){toggleSong();return;}
   else if(k==='rec'){if(rec)finishRec();else startRec();return;}
   else if(k==='vplay'){const b=takeBuf.get(el.dataset.id);if(b&&!playing&&!rec){ensureAudio();const s=ctx.createBufferSource();s.buffer=b;s.connect(G.ch.voice.g);s.start();}return;}
   else if(k==='vdel'){const cl=state.clips.find(x=>x.id===el.dataset.id);if(cl)openSheet(`<h2>${t('v_del_q',t('v_take',cl.n))}</h2><p>${t('v_del_info')}</p><button class="big danger" data-m="vdelYes" data-id="${cl.id}">${t('v_del_yes')}</button><button class="big" data-m="close">${t('cancel')}</button>`);return;}
@@ -808,7 +878,7 @@ $('#main').addEventListener('click',e=>{
   save();render();
 });
 // acciones del área principal que cambian el proyecto (las demás solo cambian la vista)
-const MUT=new Set(['dstep','sstep','ostep','basscell','synthcell','bflag','set','mute','rand','clear','plen']);
+const MUT=new Set(['dstep','sstep','ostep','basscell','synthcell','bflag','set','mute','rand','clear','plen','sbar','sfill']);
 function onInput(e){const p=e.target.dataset.p;if(!p)return;let v=e.target.value;if(e.target.type==='range'||/^-?\d+$/.test(v))v=Number(v);
   checkpoint('in:'+p);setPath(p,v);if(p.startsWith('mix'))applyMix(G);if(p==='root'||p==='scale')render();save();}
 $('#main').addEventListener('input',onInput);
@@ -824,7 +894,8 @@ $('#play').addEventListener('click',play);
 $('#undo').addEventListener('click',undo);$('#redo').addEventListener('click',redo);
 document.addEventListener('keydown',e=>{if(!(e.ctrlKey||e.metaKey)||e.altKey)return;const k=e.key.toLowerCase();
   if(k==='z'&&!e.shiftKey){e.preventDefault();undo();}else if(k==='y'||(k==='z'&&e.shiftKey)){e.preventDefault();redo();}});
-$('#chain').addEventListener('click',()=>{checkpoint();state.chain=!state.chain;save();renderHeader();toast(state.chain?t('t_chain_on'):t('t_chain_off'));});
+function toggleSong(){checkpoint();state.song.on=!state.song.on;save();render();toast(state.song.on?t('t_song_on'):t('t_song_off'));}
+$('#songBtn').addEventListener('click',toggleSong);
 let rep=0,repT=0;
 function holdBtn(btn,d){const go=()=>{checkpoint('bpm');setBpm(state.bpm+d);};
   btn.addEventListener('pointerdown',e=>{e.preventDefault();go();repT=setTimeout(()=>{rep=setInterval(go,60);},400);});
@@ -840,7 +911,8 @@ function langSheet(first){openSheet(`<h2>${first?'Elegí el idioma · Choose you
   ${first?'<p>Lo podés cambiar después desde el menú ⋯ · You can change it later from the ⋯ menu</p>':''}`,first);}
 function setLang(l){lang=l;try{localStorage.setItem(LANG_KEY,l);}catch(e){}renderStatic();render();}
 sheet.addEventListener('click',e=>{if(e.target===sheet){if(!sheet.dataset.lock)closeSheet();return;}const b=e.target.closest('[data-m]');if(b)menuAction(b.dataset.m,b);});
-$('#menuBtn').addEventListener('click',()=>openSheet(`<h2>${t('project')}</h2>
+$('#menuBtn').addEventListener('click',()=>openSheet(`<h2>${t('project')}: ${esc(curProj()?curProj().name:'')}</h2>
+  <button class="big" data-m="projects">${t('m_projects')}</button>
   <button class="big" data-m="export">${t('m_export')}</button>
   <button class="big" data-m="dup">${t('m_dup','ABCD'[state.cur],'ABCD'[(state.cur+1)%4])}</button>
   <button class="big" data-m="save">${t('m_save')}</button>
@@ -849,9 +921,9 @@ $('#menuBtn').addEventListener('click',()=>openSheet(`<h2>${t('project')}</h2>
   <button class="big danger" data-m="clearPat">${t('m_clear','ABCD'[state.cur])}</button>
   <button class="big danger" data-m="reset">${t('m_reset')}</button>`));
 let exLoops=4;
-function exportSheet(){const o=state.chain?chainOrder():[state.cur],desc=o.map(i=>'ABCD'[i]).join(' → ');
-  const secs=Math.round(exLoops*totalSteps(o)*stepDur());
-  openSheet(`<h2>${t('ex_title')}</h2><p>${state.chain?t('ex_chain'):t('ex_pat')} ${desc}, ${t('ex_rep')}</p>
+function exportSheet(){const so=state.song.on,nb=state.voice.bars;
+  const secs=Math.round(exLoops*(so?nb*16:pat().len)*stepDur());
+  openSheet(`<h2>${t('ex_title')}</h2><p>${so?t('ex_song',nb):t('ex_pat')+' '+'ABCD'[state.cur]}, ${t('ex_rep')}</p>
   <div class="row">${[1,2,4,8].map(n=>`<button data-m="loops" data-v="${n}" class="${n===exLoops?'on':''}">${n}×</button>`).join('')}</div>
   <p>${t('ex_info',secs)}</p>
   <button class="go" data-m="render">${t('ex_go')}</button>`);}
@@ -859,10 +931,10 @@ async function menuAction(m,b){
   if(m==='export')exportSheet();
   else if(m==='loops'){exLoops=+b.dataset.v;exportSheet();}
   else if(m==='render'){openSheet(`<h2>${t('rendering')}</h2><p>${t('wait')}</p>`);
-    try{const o=state.chain?chainOrder():[state.cur];const buf=await renderOffline(o,exLoops);const blob=zipStore('pista.wav',new Uint8Array(encodeWav(buf)));closeSheet();await saveFile(`estudio-${stamp()}.zip`,blob);}
+    try{const buf=state.song.on?await renderSong(exLoops):await renderOffline([state.cur],exLoops);const blob=zipStore('pista.wav',new Uint8Array(encodeWav(buf)));closeSheet();await saveFile(`takt-${stamp()}.zip`,blob);}
     catch(e){console.error(e);closeSheet();toast(t('t_export_fail'));}}
   else if(m==='dup'){checkpoint();const n=(state.cur+1)%4;state.patterns[n]=JSON.parse(JSON.stringify(pat()));state.cur=n;closeSheet();save();render();toast(t('t_copied','ABCD'[n]));}
-  else if(m==='save'){closeSheet();await saveFile(`proyecto-${stamp()}.json`,JSON.stringify(state));if(state.clips.length)toast(t('t_json_voice'));}
+  else if(m==='save'){closeSheet();await saveFile(`takt-${slug(curProj()?curProj().name:'')||'proyecto'}-${stamp()}.json`,JSON.stringify(state));if(state.clips.length)toast(t('t_json_voice'));}
   else if(m==='open'){closeSheet();$('#fileIn').click();}
   else if(m==='clearPat'){checkpoint();state.patterns[state.cur]=emptyPattern();closeSheet();save();render();}
   else if(m==='reset')openSheet(`<h2>${t('reset_q')}</h2><p>${t('reset_info')}</p><button class="big danger" data-m="resetYes">${t('reset_yes')}</button><button class="big" data-m="close">${t('cancel')}</button>`);
@@ -871,9 +943,37 @@ async function menuAction(m,b){
   else if(m==='lang'){closeSheet();setLang(b.dataset.v);}
   else if(m==='vdelYes'){const id=b.dataset.id;state.clips=state.clips.filter(c=>c.id!==id);takeBuf.delete(id);IDB.del(id);closeSheet();save();render();}
   else if(m==='close')closeSheet();
+  else if(m==='projects')projSheet();
+  else if(m==='pjOpen'){if(b.dataset.id===curId)closeSheet();else{switchProject(b.dataset.id);closeSheet();}}
+  else if(m==='pjNew'){const s=defaultState();s.patterns=[emptyPattern(),emptyPattern(),emptyPattern(),emptyPattern()];addProject(s,t('pj_def',projects.length+1));closeSheet();toast(t('t_pj_new'));}
+  else if(m==='pjRen'){const p=projects.find(x=>x.id===b.dataset.id);if(!p)return;
+    openSheet(`<h2>${t('pj_rename')}</h2><input class="txt" id="pjName" maxlength="40" value="${esc(p.name)}"><button class="go" data-m="pjRenOk" data-id="${p.id}">${t('pj_save')}</button><button class="big" data-m="projects">${t('cancel')}</button>`);
+    const inp=$('#pjName');inp.focus();inp.select();inp.addEventListener('keydown',e=>{if(e.key==='Enter')menuAction('pjRenOk',{dataset:{id:p.id}});});}
+  else if(m==='pjRenOk'){const p=projects.find(x=>x.id===b.dataset.id),v=($('#pjName')||{}).value;if(p&&v&&v.trim()){p.name=v.trim().slice(0,40);writeIdx();}projSheet();}
+  else if(m==='pjDup'){await dupProject(b.dataset.id);projSheet();toast(t('t_pj_dup'));}
+  else if(m==='pjDel'){const p=projects.find(x=>x.id===b.dataset.id);if(p)openSheet(`<h2>${t('pj_del_q',esc(p.name))}</h2><p>${t('pj_del_info')}</p><button class="big danger" data-m="pjDelYes" data-id="${p.id}">${t('v_del_yes')}</button><button class="big" data-m="projects">${t('cancel')}</button>`);}
+  else if(m==='pjDelYes'){await delProject(b.dataset.id);projSheet();toast(t('t_pj_del'));}
 }
+const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+const slug=x=>String(x).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40);
+function projSheet(){const rows=projects.slice().sort((a,b)=>b.upd-a.upd).map(p=>`<div class="take"><div data-m="pjOpen" data-id="${p.id}">${esc(p.name)}${p.id===curId?` <b>· ${t('pj_cur')}</b>`:''}<small>${new Date(p.upd).toLocaleString(L(),{dateStyle:'short',timeStyle:'short'})}</small></div>
+  <button data-m="pjRen" data-id="${p.id}" aria-label="${t('pj_rename')}">✎</button><button data-m="pjDup" data-id="${p.id}" aria-label="${t('pj_dup')}">⧉</button><button data-m="pjDel" data-id="${p.id}" aria-label="${t('pj_del')}">🗑</button></div>`).join('');
+  openSheet(`<h2>${t('pj_title')}</h2><div class="pjlist">${rows}</div><button class="go" data-m="pjNew">${t('pj_new')}</button>`);}
+// cambia al proyecto `id`: corta lo que suena, guarda el actual y carga el otro con sus tomas
+function switchProject(id){if(rec){rec=null;micClose();}if(playing)stop();flushSave();
+  curId=id;lsSet(PJ_CUR,id);state=readProject(id)||defaultState();UNDO.length=0;REDO.length=0;updUndo();takeBuf.clear();
+  applyMix(G);render();loadTakes();const p=curProj();if(p)toast(t('t_pj_open',p.name));}
+function addProject(s,name){flushSave();const id=newId('p');lsSet(pjKey(id),JSON.stringify(s));projects.push({id,name,upd:Date.now()});writeIdx();switchProject(id);return id;}
+// duplicar copia también el audio de las tomas con ids nuevos (si no, borrar una copia borraría el audio de la otra)
+async function dupProject(id){flushSave();const s=readProject(id),src=projects.find(x=>x.id===id);if(!s||!src)return;
+  for(const c of s.clips){const v=await IDB.get(c.id),nid=newId('v');if(v)await IDB.put(nid,v);c.id=nid;}
+  const nid=newId('p');lsSet(pjKey(nid),JSON.stringify(s));projects.push({id:nid,name:t('pj_copy',src.name).slice(0,40),upd:Date.now()});writeIdx();}
+async function delProject(id){const s=readProject(id);if(s)for(const c of s.clips)await IDB.del(c.id);
+  try{localStorage.removeItem(pjKey(id));}catch(e){}projects=projects.filter(x=>x.id!==id);writeIdx();
+  if(id===curId){if(projects.length){const n=projects.slice().sort((a,b)=>b.upd-a.upd)[0];curId='';switchProject(n.id);}
+    else{const s2=defaultState();s2.patterns=[emptyPattern(),emptyPattern(),emptyPattern(),emptyPattern()];curId='';addProject(s2,t('pj_def',1));}}}
 $('#fileIn').addEventListener('change',async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;
-  try{const o=JSON.parse(await f.text());if(!o||!Array.isArray(o.patterns)||o.patterns.length!==4)throw 0;if(playing)stop();checkpoint();state=fixState(merge(defaultState(),o));applyMix(G);save();render();toast(t('t_opened'));loadTakes();}
+  try{const s=parseProject(await f.text());if(!s)throw 0;addProject(s,f.name.replace(/\.json$/i,'').slice(0,40)||t('pj_def',projects.length+1));toast(t('t_opened'));}
   catch(err){toast(t('t_badfile'));}});
 const stamp=()=>{const d=new Date(),p=n=>String(n).padStart(2,'0');return `${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`;};
 let dlP=null;
@@ -890,6 +990,13 @@ async function renderOffline(order,loops){
   const st=0.02;let g=0;
   for(let l=0;l<loops;l++)for(const p of order){const n=state.patterns[p].len,ps=st+g*sd;
     for(let s=0;s<n;s++){if((g+s)%16===0)scheduleVoices(gr,((g+s)/16)%state.voice.bars,st+(g+s)*sd,16*sd,false);scheduleStep(gr,p,s,ps,sd,false);}g+=n;}
+  return await oc.startRendering();
+}
+// exporta el arreglo completo (voice.bars compases), `loops` veces
+async function renderSong(loops){
+  const sd=stepDur(),sr=44100,nb=state.voice.bars,sec=loops*nb*16*sd+2.5;
+  const OAC=window.OfflineAudioContext||window.webkitOfflineAudioContext,oc=new OAC(2,Math.ceil(sec*sr),sr),gr=buildGraph(oc,false);
+  for(let l=0;l<loops;l++)for(let b=0;b<nb;b++){const bs=0.02+(l*nb+b)*16*sd;scheduleVoices(gr,b,bs,16*sd,false);for(let i=0;i<16;i++)songStep(gr,b,i,bs+i*sd,sd,false);}
   return await oc.startRendering();
 }
 function encodeWav(buf){const len=buf.length,sr=buf.sampleRate,L=buf.getChannelData(0),R=buf.numberOfChannels>1?buf.getChannelData(1):L;
@@ -910,7 +1017,8 @@ function zipStore(name,data){const nm=new TextEncoder().encode(name),crc=crc32(d
   const E=new DataView(new ArrayBuffer(22));E.setUint32(0,0x06054b50,true);E.setUint16(8,1,true);E.setUint16(10,1,true);E.setUint32(12,46+nm.length,true);E.setUint32(16,30+nm.length+data.length,true);
   return new Blob([L,nm,data,C,nm,E]);}
 let toastT=0;function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>e.classList.remove('show'),2000);}
-document.addEventListener('visibilitychange',()=>{if(document.hidden){if(rec)finishRec();else if(playing)stop();}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){if(rec)finishRec();else if(playing)stop();flushSave();}});
+window.addEventListener('pagehide',flushSave);
 renderStatic();render();drawScope();loadTakes();if(!lang)langSheet(true);
 </script>
 </body>

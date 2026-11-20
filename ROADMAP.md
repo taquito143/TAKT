@@ -1,4 +1,4 @@
-# Roadmap — Estudio·Bolsillo
+# Roadmap — TAKT
 
 Prioridad: primero lo que hace que la app se sienta completa y confiable, después lo que agrega sonido nuevo. Todo se sintetiza o se calcula en el dispositivo, así que nada de esto debería sumar peso a la APK (salvo donde se indica).
 
@@ -14,8 +14,8 @@ Leyenda: ✅ hecho · 🚧 en curso · ⬜ pendiente · esfuerzo **B** bajo / **
 | ✅ | Probabilidad por paso (100 / 75 / 50 / 25 %) | B | Modo "Probabilidad". |
 | ✅ | Sidechain (bombo → bajo y synth) | B | Una perilla en Mezcla. |
 | ✅ | Limitador en el master + aviso de saturación | B | El osciloscopio se pone rojo si satura. |
-| ⬜ | Varios proyectos | B | Lista para crear, renombrar, duplicar, abrir y borrar. Migrar el proyecto único actual. |
-| ⬜ | Editor de canción | M | Línea de compases con los patrones A–D (intro A, estrofa B×4…). Unificar con la línea de tiempo de voz: una sola línea con fila de patrones y fila de voz. Reemplaza al modo cadena. |
+| ✅ | Varios proyectos | B | Menú ⋯ → Proyectos: crear, renombrar, duplicar, abrir y borrar. El proyecto único anterior se migró solo. |
+| ✅ | Editor de canción | M | Pestaña Canción: una línea de 4–32 compases con fila de patrones y fila de voz. Reemplaza al modo cadena. |
 
 ## Fase 2 — Expresión y mezcla
 

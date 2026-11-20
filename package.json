@@ -1,8 +1,8 @@
 {
-  "name": "estudio-bolsillo",
+  "name": "takt",
   "version": "0.1.0",
   "private": true,
-  "description": "Estudio musical para celular: caja de ritmos, bajo tipo 303, synth y mezcla. Web Audio puro.",
+  "description": "TAKT: estudio musical para celular: caja de ritmos, bajo tipo 303, synth y mezcla. Web Audio puro.",
   "scripts": {
     "dev": "serve www -l 5173",
     "android:add": "cap add android",

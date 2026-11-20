@@ -1,6 +1,6 @@
-# Estudio·Bolsillo
+# TAKT
 
-Estudio musical pensado para el celular: caja de ritmos de 6 pistas con 150 sonidos y 12 kits, patrones de 8/16/32 pasos con redobles y probabilidad, bajo tipo 303 con acento y ligado, synth de acordes, grabación de voz con el micrófono en su propia línea de tiempo, mezcla con eco, reverb, sidechain y limitador, deshacer/rehacer, 4 patrones encadenables y exportación a WAV. En español e inglés. Todo el audio se sintetiza en el navegador con Web Audio, sin samples ni librerías.
+TAKT es un estudio musical pensado para el celular: caja de ritmos de 6 pistas con 150 sonidos y 12 kits, patrones de 8/16/32 pasos con redobles y probabilidad, bajo tipo 303 con acento y ligado, synth de acordes, grabación de voz con el micrófono en su propia línea de tiempo, mezcla con eco, reverb, sidechain y limitador, deshacer/rehacer, varios proyectos, 4 patrones por proyecto, editor de canción por compases y exportación a WAV. En español e inglés. Todo el audio se sintetiza en el navegador con Web Audio, sin samples ni librerías.
 
 ## Probarlo en la compu
 
