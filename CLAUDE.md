@@ -41,7 +41,7 @@ Todo vive en `www/index.html`, un solo archivo con HTML, CSS y JS vanilla. Sin b
 
 ## Integración con claude.ai (a reemplazar en la APK)
 
-`saveFile()` primero intenta `window.claude.use('downloads')`, que solo existe en el visor de artifacts de claude.ai. Si no está, cae a un `<a download>`. **En Android WebView `<a download>` no funciona:** hay que detectar Capacitor (`window.Capacitor?.isNativePlatform()`) y usar `@capacitor/filesystem` (escribir en Documents/Music) más `@capacitor/share` para compartir. Ahí se puede exportar `.wav` directo, sin zip.
+En la APK (`isNative()`), `saveFile()` escribe el archivo en la caché de la app con `@capacitor/filesystem` y abre el menú de compartir de Android (`@capacitor/share`); el WAV sale directo, sin zip. En la web, `saveFile()` primero intenta `window.claude.use('downloads')`, que solo existe en el visor de artifacts de claude.ai. Si no está, cae a un `<a download>`. **En Android WebView `<a download>` no funciona:** hay que detectar Capacitor (`window.Capacitor?.isNativePlatform()`) y usar `@capacitor/filesystem` (escribir en Documents/Music) más `@capacitor/share` para compartir. Ahí se puede exportar `.wav` directo, sin zip.
 
 ## Próximos pasos (roadmap)
 
@@ -51,6 +51,10 @@ El roadmap de funciones está en `ROADMAP.md` (fases, estado y esfuerzo). Manten
 2. **Audio en Android:** probar la latencia en equipos de gama media. Si el scheduler con `setInterval` se atrasa en segundo plano, pasarlo a un AudioWorklet o a un Worker con reloj.
 3. **Funciones:** más sonidos o kits, longitud de patrón variable (8/16/32), editor de canción (secuencia de patrones), grabar el micrófono, deshacer.
 4. **Calidad del código:** cuando crezca, separar en módulos (`audio/`, `ui/`, `state/`) con Vite, sin romper que funcione offline.
+
+## Versión web (GitHub Pages)
+
+`.github/workflows/pages.yml` publica `www/` en https://taquito143.github.io/TAKT/ cada vez que se sube algo a `main` (sin compilación). Sirve para probar desde cualquier equipo, también el micrófono (es https). Para que el inicio de sesión con Google ande ahí, `taquito143.github.io` tiene que estar en Firebase → Authentication → Settings → Authorized domains. Ojo: GitHub Pages en un repo privado necesita un plan pago de GitHub.
 
 ## Cómo probar
 

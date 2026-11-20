@@ -2,6 +2,10 @@
 
 TAKT es un estudio musical pensado para el celular: caja de ritmos de 6 pistas con 150 sonidos y 12 kits, patrones de 8/16/32 pasos con redobles y probabilidad, piano roll para bajo y synth, bajo tipo 303 con acento y ligado, synth con 5 instrumentos (incluye FM), progresiones de acordes y arpegiador, sampler con tus propios audios, grabación de voz con el micrófono, con efectos (compuerta, compresor, cambio de tono, afinación automática), presets y edición de tomas, mezcla con eco, reverb, sidechain y limitador, deshacer/rehacer, efectos por canal (EQ, filtro, distorsión, bitcrusher, chorus), volumen y corrimiento por paso, polirritmos, pads para tocar en vivo, plantillas por género, varios proyectos, 4 patrones por proyecto, editor de canción por compases y exportación a WAV. En español e inglés. Todo el audio se sintetiza en el navegador con Web Audio, sin samples ni librerías.
 
+## Probarlo en la web
+
+https://taquito143.github.io/TAKT/ (se actualiza sola con cada cambio en `main`).
+
 ## Probarlo en la compu
 
 ```bash
