@@ -21,14 +21,18 @@ Leyenda: ✅ hecho · 🚧 en curso · ⬜ pendiente · esfuerzo **B** bajo / **
 
 | | Función | Esf. | Notas |
 |---|---|---|---|
-| ⬜ | Velocidad fina y nudge por paso | M | Volumen 1–127 y corrimiento ± medio paso. |
-| ⬜ | Largo distinto por pista (polirritmos) | M | |
-| ⬜ | Humanizar | B | Pequeñas variaciones de tiempo y volumen. |
-| ⬜ | Tocar en vivo | M | Pads que suenan al tocarlos y graban en el patrón con cuantizado. |
-| ⬜ | Efectos por canal | M | EQ 3 bandas, filtro, distorsión, bitcrusher, chorus. |
-| ⬜ | Plantillas por género | B | Trap, house, reggaetón, lo-fi, techno: patrones + kit + tempo. |
-| ⬜ | Medidores de nivel por canal | B | |
+| ✅ | Velocidad fina y nudge por paso | M | Modos Volumen (5–100 %) y Corrimiento (±50 % de un paso) en el editor de ritmo. |
+| ✅ | Largo distinto por pista (polirritmos) | M | "Largo de pista": la pista da vueltas sola, independiente del patrón. |
+| ✅ | Humanizar | B | En Mezcla → Tonalidad y groove: hasta ±12 ms y -30 % de volumen al azar. |
+| ✅ | Tocar en vivo | M | Modo "En vivo": 6 pads; con la grabación encendida cada golpe va al paso más cercano. |
+| ✅ | Efectos por canal | M | Botón FX en cada canal: EQ 3 bandas, filtro, distorsión, bitcrusher, chorus. |
+| ✅ | Plantillas por género | B | Menú ⋯ → Plantillas: trap, house, reggaetón, lo-fi, techno, drum & bass, boom bap. |
+| ✅ | Medidores de nivel por canal | B | En Mezcla, en dB. |
 | ⬜ | Automatización | A | Grabar el movimiento de una perilla a lo largo del patrón o la canción. |
+
+| ✅ | Pantalla de carga y título TAKT | B | Título con contorno y extrusión (luz desde la derecha). La línea del costado engorda y brilla con el sonido. |
+| ✅ | Configuración (⚙) | B | Idioma y calidad de exportación (44,1/48 kHz, 16/24 bits). Acá irán la cuenta y la carpeta de guardado. |
+| ⬜ | Inicio de sesión con Google y guardado en la nube | A | Ver propuesta: Firebase (Auth + Firestore + Storage), sin perder el modo sin conexión. |
 
 ## Fase 3 — Instrumentos
 
