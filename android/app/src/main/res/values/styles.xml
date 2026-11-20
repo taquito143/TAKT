@@ -16,7 +16,11 @@
     </style>
 
 
+    <!-- pantalla de inicio de Android: fondo oscuro de TAKT con la T en el centro (sin destello blanco) -->
     <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#0D0E12</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/AppTheme.NoActionBar</item>
         <item name="android:background">@drawable/splash</item>
     </style>
 </resources>
